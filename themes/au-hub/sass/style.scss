@@ -1,0 +1,27 @@
+/*!
+Theme Name: Athabasca University News Hub
+Author: Ryan Grasby Web Services
+Description: A place for the Athabasca University to share stories, updates and events in conjunction with social media
+Version: 1.0
+*/
+
+
+// Bootstrap Grid only
+@import "vendors/bootstrap/grid";
+@import "vendors/normalize/normalize";
+@import "vendors/hamburgers/hamburgers";
+
+// Stitch Creative theme
+@import 'utilities/variables'; 
+@import 'utilities/helpers';
+@import 'utilities/mixins';
+
+@import 'base/base'; 
+@import 'base/typography'; 
+
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+
+
+@import 'pages/error404'; 
