@@ -1,0 +1,29 @@
+#main-header{
+    height: 110px;
+    background: $blue;
+    display: flex;
+    padding: 0 1rem;    
+    @include media-breakpoint-up(md) { 
+        padding: 0 1.5rem;        
+    }
+    @include media-breakpoint-up(lg) { 
+        padding: 0 2rem;    
+    }
+    @include media-breakpoint-up(xl) { 
+        padding: 0 2.5rem;
+    }
+    #au-logo{
+        display: flex;
+        height: 100%;
+        width: 145px;
+        align-items: center;
+        svg{
+            .shield{
+                fill: $orange;
+            }
+            .main{
+                fill: white;
+            }
+        }
+    }
+}

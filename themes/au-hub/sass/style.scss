@@ -9,7 +9,8 @@ Version: 1.0
 // Bootstrap Grid only
 @import "vendors/bootstrap/grid";
 @import "vendors/normalize/normalize";
-@import "vendors/hamburgers/hamburgers";
+@import "vendors/owl-carousel/owl.carousel";
+@import "vendors/owl-carousel/owl.theme.default";
 
 // Stitch Creative theme
 @import 'utilities/variables'; 
@@ -23,5 +24,9 @@ Version: 1.0
 @import 'layout/header';
 @import 'layout/footer';
 
+@import 'components/instagram-feed.scss';
+@import 'components/hero.scss';
+@import 'components/sidebar-menu.scss';
+@import 'components/hamburger.scss';
 
 @import 'pages/error404'; 
