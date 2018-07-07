@@ -6,10 +6,10 @@
         foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
 
         $args = array(
-            'category__in' => $category_ids,
-            'post__not_in' => array($post->ID),
-            'posts_per_page'=> 2, 
-            'caller_get_posts'=>1
+            'category__in'    => $category_ids,
+            'post__not_in'    => array($post->ID),
+            'posts_per_page'  => 2, 
+            'caller_get_posts'=> 1
         );
 
         $my_query = new wp_query( $args );

@@ -1,34 +1,26 @@
 
-    <article>
+<article>
 
-        <?php if ( has_post_thumbnail() ) : ?>
+    <div class="article-excerpt">
+        <a href="<?php the_permalink(); ?>" title="Read Article">
 
-            <div class="article-img circle" style="background-image:url(<?php the_post_thumbnail_url('large'); ?>);"></div>
-
-        <?php endif; ?>
-
-        <div class="article-excerpt">
-
-            <div class="post-meta">
-                <ul>
-                    <li><?php echo get_the_date(); ?></li>
-                    <li>Categories: <?php echo get_the_category_list(' , '); ?></li>
-                </ul>
+            <?php if ( has_post_thumbnail() ) : ?>
+            <div class="article-image">
+                <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>" />
+                <?php get_template_part( 'template-parts/content/format', 'icon' ); ?>
             </div>
-            <a href="<?php the_permalink(); ?>" title="Read Article">
-                <h2><?php the_title(); ?> <span class="bullet">&#8226;</span> <?php echo get_field( "secondary_heading" ); ?></h2>
+            <?php endif; ?>
 
-                <?php $excerpt = wp_trim_words( get_field('intro'), $num_words = 50, $more = '...' ); ?>
-                <p><?php echo $excerpt ?></p>
+            <h2><?php the_title(); ?></h2>
 
-                <span class="btn btn-link">
-                    Continue Reading
-                    <svg viewBox="0 0 32 32" class="icon">
-                        <use xlink:href="#right-arrow"></use>
-                    </svg>
-                </span>
-            </a>
+        </a>
 
+        <div class="post-meta">
+            <ul>
+                <li><?php echo get_the_category_list('<span> / </span>'); ?></li>
+            </ul>
         </div>
-        
-    </article>
+
+    </div>
+
+</article>
