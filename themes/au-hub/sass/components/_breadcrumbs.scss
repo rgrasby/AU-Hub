@@ -1,0 +1,55 @@
+#breadcrumb{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem 0 0;
+    position: relative;
+    z-index: 99993;
+    background: white;
+    overflow: hidden;
+    height: 50px;
+    @include media-breakpoint-up(md) { 
+        padding: 0 2rem 0 0;
+    }
+    @include media-breakpoint-up(lg) { 
+        padding: 0 2.5rem 0 0;
+    } 
+    >span{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding: 13px 0;
+        white-space: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        span{
+            display: inline-block;
+            font-size: 0.9em;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+.header-stuck{
+    #breadcrumb{
+        position: fixed;
+        top: $header-height-sm;
+    }
+    .main-nav-showing{
+        #breadcrumb{
+            left: $main-nav-width;
+        }    
+    }
+}
+
+#breadcrumb{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    transition: all .3s ease-in;
+}

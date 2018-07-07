@@ -4,3 +4,76 @@
 * Styles for single.php and single-portfolio.php
 */
 
+#post-intro, .owl-carousel, .content-only, .image-row{
+    margin: 4em 0;
+} 
+
+.first-letter{
+    color: $blue;
+    float: left;
+    font-weight: 400;
+    font-size: 3.2em;
+    margin: 0 10px 0 0;
+    line-height: 0.9em;
+    position: relative;
+    top: 2px;
+}
+
+.qa-row{
+    margin-bottom: 4em;
+    .qa-wrap{
+        margin-bottom: 2em;
+        display: flex;
+    }
+    .qa-thumb{
+        flex-basis: 125px;
+        flex-shrink: 0;
+        text-align: center;
+        .thumb{
+            position: relative;
+            border-radius: 50%;
+            border: 1px solid $border-color;
+            width: 75px;
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin: auto;
+        }
+        svg{
+            width: 32px;
+            height: 46px;
+            position: relative;
+            top: 2px;
+            fill: $orange;
+        }
+    }
+    .question{
+        font-weight: 600;
+    }
+    .question, .answer{
+        margin-left: 2em;
+        position: relative;
+        &::before{
+            content: '';
+            width: 15px;
+            height: 15px;
+            display: block;
+            border: 1px solid $border-color;
+            transform: rotate(45deg);
+            border-right: 0;
+            border-top: 0;
+            position: absolute;
+            top: 15px;
+            left: -7px;
+            background: white;
+        }
+        .inner{
+            margin-top: 0;
+            border: 1px solid $border-color;
+            padding: 0.5em 1.5em;
+            border-radius: 3px;
+        }
+    }
+}

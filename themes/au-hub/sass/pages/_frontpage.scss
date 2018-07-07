@@ -1,0 +1,19 @@
+.featured-bg{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+#primary-featured{
+    height: 500px;
+    margin-bottom: 30px;
+}  
+
+#secondary-featured, #third-featured{
+    height: 400px;
+}
+
+#recent-posts{
+    margin-top: 30px;
+}

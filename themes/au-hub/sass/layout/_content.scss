@@ -1,0 +1,11 @@
+#content-container{
+    position: relative;
+    transition: all 0.3s ease-in;
+    &.main-nav-showing{
+        padding-left: $main-nav-width;
+    }
+}
+
+#main-content{
+    min-height: 1000px;
+}

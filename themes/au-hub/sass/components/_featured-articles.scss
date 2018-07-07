@@ -1,0 +1,64 @@
+.featured{
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    .featured-bg{
+        opacity: 0.65;  
+        position: relative;
+        z-index: 9;
+    }
+    .featured-content{
+        position: absolute;
+        z-index: 99;
+        left: 1.5em;
+        bottom: 1.5em;
+        width: 60%;
+        h2{
+            text-transform: uppercase;
+            font-size: 2.5em;
+            margin: 0;
+            a{
+                color: white;
+                @include text-shadow;
+            }
+        }
+        ul{
+            padding: 0;
+            color: white;
+            list-style: none;
+            li{
+                a{
+                    color: white;                   
+                }
+            }
+        }
+    }
+    .featured-bg-color{
+        position: relative;
+        background: radial-gradient(40em at top right, #db6331, transparent);
+        background-color: $blue;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.featured-md{
+    .featured-bg-color{
+        background: radial-gradient(20em at top right, #db6331, transparent);  
+        background-color: $blue;
+    }
+}
+
+#primary-featured{
+    .featured-content{
+        h2{
+            text-transform: uppercase;
+            font-size: 2.5em;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+#open-main-nav{
+    .hamburger{
+        display: flex;
+        .hamburger-box{
+            margin-right: 0.5em;    
+        }
+        .hamburger-inner{
+            background: white;
+            &::before, &::after{
+                background: white;
+            }
+        }
+    }
+}
