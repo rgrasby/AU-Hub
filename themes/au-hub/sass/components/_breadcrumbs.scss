@@ -8,12 +8,16 @@
     background: white;
     overflow: hidden;
     height: 50px;
+    color: $alt-blue;
     @include media-breakpoint-up(md) { 
         padding: 0 2rem 0 0;
     }
     @include media-breakpoint-up(lg) { 
         padding: 0 2.5rem 0 0;
     } 
+    a{
+        color: $alt-blue;
+    }
     >span{
         list-style: none;
         padding: 0;
@@ -23,6 +27,14 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: -ms-autohiding-scrollbar;
+        &:first-of-type{
+            strong{
+                font-weight: 400;
+            }
+            a +strong{
+                font-weight: 600;    
+            }
+        }
         span{
             display: inline-block;
             font-size: 0.9em;

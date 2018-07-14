@@ -12,8 +12,8 @@ Version: 1.0
 @import "vendors/owl-carousel/owl.carousel";
 @import "vendors/owl-carousel/owl.theme.default";
 @import "vendors/hamburgers/hamburgers";
+@import "vendors/fancybox/jquery.fancybox";
 
-// Stitch Creative theme
 @import 'utilities/variables'; 
 @import 'utilities/helpers';
 @import 'utilities/mixins';
@@ -33,6 +33,14 @@ Version: 1.0
 @import 'components/breadcrumbs.scss';
 @import 'components/featured-articles.scss';
 @import 'components/articles.scss';
+@import 'components/forms.scss'; 
+@import 'components/buttons.scss'; 
+@import 'components/callouts.scss'; 
+@import 'components/owl-carousel.scss'; 
+@import 'components/social-share.scss'; 
+@import 'components/nextprev.scss'; 
+@import 'components/animations.scss'; 
+@import 'components/events.scss'; 
 
 @import 'pages/error404'; 
 @import 'pages/frontpage.scss'; 

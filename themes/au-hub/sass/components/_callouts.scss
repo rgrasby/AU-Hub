@@ -1,0 +1,44 @@
+.callout-box{
+    padding: 0.75em;
+    margin: 3.5em 0 2em;
+    background-color: $gray-light;
+    position: relative;
+    [id*="tab-wrapper"], .callout-box-content, #resource-block{
+        @include light-dropshadow;
+    }
+    .callout-box-content{
+        background: white;
+        padding: 2em;
+    }
+    h3 {
+        color: $blue;
+        font-weight: 400;
+        margin: 0 0 0.5em;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        margin-left: -25px;
+        width: 0; 
+        height: 0; 
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-top: 25px solid $gray-light;
+    }
+    &.no-arrow{
+        margin: 1.5em 0 2em;  
+        &:before{
+            display: none;
+        }
+    }
+    hr{
+        margin: 2em 0!important;
+    }
+    .btn{
+        + hr{
+            margin-top: 1.5em!important;
+        }
+    }
+}

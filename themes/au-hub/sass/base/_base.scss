@@ -21,6 +21,42 @@ img{
     }
 }
 
+section{
+    position: relative;
+}
+
+body{
+    line-height: 1.4em;
+}
+
 a{
     text-decoration: none;
+    color: lighten($alt-blue, 5%);
+    &:hover, &:focus{
+        text-decoration: underline;
+    }
+    &:visited{
+        color: $blue;
+    }
+}
+
+hr{
+    border: 0;
+    height: 1px;
+    background: $border-color;
+    margin: 2.5em 0;
+}
+
+.sc-only, .screen-reader-text {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.the-end{
+    display: none;
+    text-align: center;
 }

@@ -20,7 +20,7 @@
 .scroll-btn {
     position: absolute;
     left: 0;
-    right: 0;  
+    right: 0;
     text-align: center;
     bottom: 1em;
     display: block;
@@ -30,7 +30,10 @@
     color: #7f8c8d;
     color: #ffffff;
     letter-spacing: 2px;
-    p{
+    a {
+        color: white;
+    }
+    p {
         color: white;
     }
     .mouse {
@@ -38,10 +41,10 @@
         display: block;
         width: 35px;
         height: 55px;
-        margin: 0 auto 1em; 
+        margin: 0 auto 1em;
         border: 3px solid white;
         border-radius: 23px;
-        >* {
+        > * {
             position: absolute;
             display: block;
             top: 29%;
@@ -56,12 +59,13 @@
     }
 }
 
-#hero{
-    height: calc(100vh - 300px);
+#hero {
+    height: calc(100vh - 150px);
     position: relative;
     background: $blue;
     overflow: hidden;
-    &::before{
+    min-height: 500px;
+    &::before {
         content: '';
         position: absolute;
         top: 0;
@@ -70,7 +74,7 @@
         bottom: 0;
         background: radial-gradient(40em at top right, #db6331, transparent);
     }
-    .hero-bg{
+    .hero-bg {
         position: absolute;
         top: 0;
         left: 0;
@@ -83,33 +87,47 @@
         background-position: center;
         opacity: 0.7;
     }
-    .hero-inner{
-        height: 100%;   
+    .hero-inner {
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
         position: relative;
         z-index: 99;
-        h1{
+        h1 {
             margin: 0;
             text-transform: uppercase;
             color: white;
             @include text-shadow;
         }
-        .post-meta-top{
+        .post-meta-top {
             font-size: 1.2em;
-            li{
-                display: inline-block;
-                color: white;
-                a{
+            ul {
+                padding: 0;
+                margin: 0;
+                li {
+                    display: inline-block;
                     color: white;
-                    @include text-shadow;
+                    a {
+                        color: white;
+                        @include text-shadow;
+                    }
                 }
             }
-            span{
+            span {
                 color: white;
                 @include text-shadow;
+            }
+        }
+        @include post-format;
+        .post-format-icon {
+            right: 0.5em;
+            bottom: 0.5em;
+            @include media-breakpoint-up(md) { 
+                font-size: 1.8em;
+                width: 40px;
+                height: 40px;
             }
         }
     }

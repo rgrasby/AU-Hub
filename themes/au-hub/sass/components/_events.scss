@@ -1,0 +1,47 @@
+#events {
+    background: $gray-light;
+    margin-top: 3em;
+    padding: 3em 0 4em;
+    .row {
+        display: block;
+    }
+    h2 {
+        margin-top: 0;
+    }
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .tcode-event-schedule {
+        .scheduled-event {
+            padding: 2.5em 0;
+            border-bottom: 1px solid $border-color;
+            background: white;
+        }
+        .scheduled-locations{
+            margin-bottom: -1px;    
+        }
+        .scheduled-days {
+            display: block;
+        }
+        .event-content {
+            hr {
+                display: none;
+            }
+        }
+        .event-icon{
+            margin-right: 1em;
+        }
+        .event-expanded {
+            background: white!important;
+        }
+        .event-time {
+            span {
+                font-weight: 400;
+            }
+        }
+        .event-content {
+            margin-top: -1em;
+        }
+    }
+}

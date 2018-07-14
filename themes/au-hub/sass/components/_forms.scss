@@ -1,0 +1,59 @@
+/* Header search form */
+.searchform{
+    div{
+        position: relative;
+        width: 100%; 
+        height: 60px;
+    }
+    #s, #searchsubmit{
+        height: inherit;        
+    }
+    #s{
+        width: 100%;
+        border: 1px solid $border-color;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        padding: 1em 6em 1em 1em;
+    }
+}
+
+/* Footer MailChimp sign up */
+#site-footer{
+    .sign-up{
+        max-width: 600px;
+        margin: auto;
+        form{
+            height: 70px;    
+            position: relative;
+        }
+        #subbox, #subbutton{
+            height: inherit;
+            border-radius: 3px;
+        }
+        #subbox{
+            border: 0;
+            background: white;
+            width: 100%;
+            padding: 1em 9.5em 1em 1em;
+        }
+        h3{
+            font-size: 3em;
+            margin: 0;
+        }
+        p{
+            font-size: 1.2em;
+            margin: 0 0 1em;
+        }
+    }
+}
+
+/* Style shared between head search and MailChimp sign up*/
+#searchsubmit, #subbutton{
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    border-top-left-radius: 0!important;
+    border-bottom-left-radius: 0!important;
+}

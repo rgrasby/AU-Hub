@@ -19,6 +19,14 @@ $gray-light: #EDEFF5;
 $gray-lighter: lighten($gray-light, 3%);
 $gray-medium: darken($gray-light, 10%);
 $gray-dark: darken($gray-light, 20%);
-$gray-darker: darken($gray-light, 25%);
+$gray-darker: darken($gray-light, 30%);
+$gray-darkest: darken($gray-light, 50%);
 
 $border-color: $gray-medium;
+
+$text-color: #39414e;
+
+$twitter: #00aced;
+$facebook: #3b5998;
+$linkedin: #4875B4;
+$pinterest: #C92228;

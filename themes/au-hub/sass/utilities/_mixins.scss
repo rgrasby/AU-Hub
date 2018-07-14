@@ -1,3 +1,25 @@
 @mixin text-shadow {
-    text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);    
+    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.8);    
+}
+
+@mixin light-dropshadow {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+@mixin post-format{
+    .post-format-icon{
+        background: white;
+        position: absolute;
+        right: 0.2em;
+        bottom: 0.2em;
+        z-index: 99;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i{
+            color: $blue;
+        }
+    }
 }
