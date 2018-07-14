@@ -39,7 +39,7 @@
                 
                 <div id="header-right">
                     <ul class="nav-panel-actions">
-                        <li id="search-trigger">
+                        <li id="notifications-trigger">
                             <?php get_template_part( 'template-parts/content/header', 'notifications' ); ?>
                         </li>
                         <li id="search-trigger">

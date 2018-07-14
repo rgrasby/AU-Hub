@@ -1,14 +1,16 @@
 /* Header search form */
-.searchform{
-    div{
+
+.searchform {
+    div {
         position: relative;
-        width: 100%; 
+        width: 100%;
         height: 60px;
     }
-    #s, #searchsubmit{
-        height: inherit;        
+    #s,
+    #searchsubmit {
+        height: inherit;
     }
-    #s{
+    #s {
         width: 100%;
         border: 1px solid $border-color;
         border-top-left-radius: 3px;
@@ -18,37 +20,41 @@
 }
 
 /* Footer MailChimp sign up */
-#site-footer{
-    .sign-up{
+
+#site-footer {
+    .sign-up {
         max-width: 600px;
         margin: auto;
-        form{
-            height: 70px;    
+        form {
+            height: 70px;
             position: relative;
         }
-        #subbox, #subbutton{
+        #subbox,
+        #subbutton {
             height: inherit;
             border-radius: 3px;
         }
-        #subbox{
+        #subbox {
             border: 0;
             background: white;
             width: 100%;
             padding: 1em 9.5em 1em 1em;
         }
-        h3{
+        h3 {
             font-size: 3em;
             margin: 0;
         }
-        p{
+        p {
             font-size: 1.2em;
             margin: 0 0 1em;
         }
     }
 }
 
-/* Style shared between head search and MailChimp sign up*/
-#searchsubmit, #subbutton{
+/* Style shared between header search and MailChimp sign up*/
+
+#searchsubmit,
+#subbutton {
     border: 0;
     position: absolute;
     top: 0;
@@ -56,4 +62,141 @@
     margin: 0;
     border-top-left-radius: 0!important;
     border-bottom-left-radius: 0!important;
+}
+
+/* Ninja Forms*/
+
+#nf-form-2-cont {
+
+    .nf-field-element input,
+    .nf-field-element select,
+    .nf-field-element textarea {
+        padding: 1.3em 1em;
+        background-image: none !important;
+        border: 1px solid #ccd2e3;
+        background: #f7f8fa;
+        &:focus {
+            border: 1px solid $orange;
+        }
+    }
+
+    .nf-form-title {
+        display: none;
+    }
+
+    .nf-error-msg,
+    .ninja-forms-req-symbol {
+        color: $brand-danger;
+    }
+
+    .nf-form-content {
+        margin-left: -4px;
+        margin-right: -4px;
+    } 
+    
+    //buttons
+    .nf-fu-fileinput-button,
+    .nf-field-element input[type="button"] {
+        border: 0;
+        background: $orange;
+        color: white;
+        text-decoration: none!important;
+        font-weight: 400;
+        border: 2px solid $orange;
+        margin-top: 1em;
+        transition: all 0.3s ease-in;
+        margin-bottom: 0!important;
+        border-radius: 3px;
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken($orange, 12%);
+            border: 2px solid darken($orange, 12%);
+        }
+    }
+
+    .field-wrap input[type="button"] {
+        float: right;
+        padding: 1.1em 2em;
+    }
+
+    .nf-fu-progress-bar {
+        background-color: $alt-blue;
+    }
+
+    .nf-form-fields-required {
+        font-size: 0.9em;
+        text-align: right;
+        margin-bottom: 1em;
+        font-style: italic;
+    }
+    
+    .nf-after-form-content {
+        .nf-error-msg,
+        .ninja-forms-req-symbol {
+            position: relative;
+            background: $brand-danger;
+            position: relative;
+            padding: 1em 1.25em 1em 4.5em;
+            display: block;
+            width: 100%;
+            margin: .75em 0 2.5em;
+            color: white;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+            &:before {
+                content: '';
+                position: absolute;
+                background: transparent;
+                height: 100%;
+                width: 50px;
+                left: 0;
+                top: 0;
+            }
+            &:before {
+                background: darken($brand-danger, 8%);
+            }
+            &:after {
+                content: '\f00d ';
+                font-family: FontAwesome;
+                position: absolute;
+                left: 16px;
+                top: 15px;
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+//success message
+.nf-response-msg{
+    position: relative;
+    background: $brand-success;
+    position: relative;
+    padding: 1em 1.25em 1em 4.5em;
+    display: block;
+    width: 100%;
+    margin: .75em 0 2.5em;
+    color: white;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+    p{
+        margin: 0;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        background: transparent;
+        height: 100%;
+        width: 50px;
+        left: 0;
+        top: 0;
+        background: darken($brand-success, 8%);
+    }
+    &:after {
+        content: '\f00c';
+        font-family: FontAwesome;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 1.5em;
+    }
 }

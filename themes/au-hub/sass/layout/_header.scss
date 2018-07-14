@@ -21,12 +21,24 @@
     @include media-breakpoint-up(xl) { 
         padding: 0 2.5rem;
     }
-    .full-logo, .shield-logo{
+    #au-logo{
+        position: relative;
+        width: auto;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        height: 100%;
+        z-index: 999;
+        flex-shrink: 0;
+    }
+    .shield-logo{
         display: flex;
     }
     .full-logo{
+        display: block;
+        margin-top: 0.2em;
         width: 145px;
-        height: 100px;
+        height: 58px;
     }
     .shield-logo{
         display: none;
@@ -208,6 +220,8 @@
     //Notification dropdown
     #notifications{
         width: 400px;
+        height: 350px;
+        overflow: auto;
         ul{
             list-style: none;
             padding: 0;
@@ -234,8 +248,14 @@
                 }
                 a{
                     color: $blue;
-                    font-size: 1em;
+                    font-size: 0.9em;
                     padding: 0;
+                    display: block;
+                    &:hover{
+                        .fake-link{
+                            text-decoration: underline;
+                        }
+                    }
                     i{
                         margin-left: 0.4em;
                         position: relative;

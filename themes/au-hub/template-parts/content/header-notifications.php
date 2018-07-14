@@ -31,35 +31,37 @@
         ?>
            
 
-                <?php if( $link ): ?>
-                    <li>
+        <?php if( $link ): ?>
+            <li>
 
-                        <div class="description">
-                            <?php echo $description ?>
+                <a href="<?php echo $link ?>">
+                    <div class="description">
+                        <?php echo $description ?>
+                    </div>
+                    <?php if( $date ): ?>
+                        <div class="date">
+                            <?php echo $date ?>
                         </div>
-                        <?php if( $date ): ?>
-                            <div class="date">
-                                <?php echo $date ?>
-                            </div>
-                        <?php endif; ?>
-                        <a href="<?php echo $link ?>">Find out more <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <?php endif; ?>
+                    <span class="fake-link">Find out more <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                </a>
+                
+            </li>
+        <?php else: ?>
+            <li>
 
-                    </li>
-                <?php else: ?>
-                    <li>
+                <div class="description">
+                    <?php echo $description ?>
+                </div>
 
-                        <div class="description">
-                            <?php echo $description ?>
-                        </div>
-
-                        <?php if( $date ): ?>
-                            <div class="date">
-                                <?php echo $date ?>
-                            </div>
-                        <?php endif; ?>
-
-                    </li>
+                <?php if( $date ): ?>
+                    <div class="date">
+                        <?php echo $date ?>
+                    </div>
                 <?php endif; ?>
+
+            </li>
+        <?php endif; ?>
 
         <?php endwhile; wp_reset_postdata(); ?>
     </ul>
