@@ -13,7 +13,7 @@
         loop:true,
         margin:10,
         nav:true,
-        items: 1
+        items:1
     })
     
    
@@ -21,9 +21,6 @@
     $parentCategory.hide();
     $parentCategory.next().hide();
  
-
-
-    
     /*
     Sticky Header for #main-header
     =====================================================================*/
@@ -62,6 +59,67 @@
 
     stickyMainNav.stickNav();   
     
+    /* 
+    Navigation panels for Support centre, search and mobile menu
+    =====================================================================*/
+    var navPanels = (function () {
+        
+        //variables
+        var $navPanelToggle = $('.nav-panel-toggle'),
+            $navPanel = $('.nav-panel'),
+            $body = $('body');
+        
+        //bind events
+        $navPanelToggle.on('click', openNavPanel);
+        $(document).on('click', closeNavPanels);
+        
+        function openNavPanel(e) {
+            var $this = $(this),
+                $activePanel = $(this).attr('href'); 
+                
+    
+            //position .nav-panels based on if #main-header is sticky
+            stickyMainNav.stickNav();
+            
+            e.preventDefault();
+            
+            $navPanelToggle.not($this).removeClass('active').attr("aria-expanded", 'false');
+            
+            $navPanel.removeClass('is-visible').attr("aria-hidden", 'true');
+            
+            $this.toggleClass('active');
+                console.log('hello');
+            //automatically focus to search input on click of #search-trigger a
+            if($activePanel === '#site-search'){
+                $('#au-search').find('input[type=text]').val('');
+            }
+            
+            if ($navPanelToggle.hasClass('active')){
+                $this.attr("aria-expanded", 'true');
+                $($activePanel).addClass('is-visible').attr("aria-hidden", 'false');
+                $body.addClass('nav-panel-visible');
+                
+            } else {
+                $($activePanel).removeClass('is-visible').attr("aria-hidden", 'true');
+                $this.attr("aria-expanded", 'false');
+                $body.removeClass('nav-panel-visible');
+            } 
+        }
+        
+        //close nav panels if clicked anywhere outside of them
+        function closeNavPanels(event){
+            if(event){
+                var target = event.target; 
+                if (!jQuery(target).is('#header-right *') ) {
+                    $navPanelToggle.removeClass('active').attr("aria-expanded", 'false');
+                    $navPanel.removeClass('is-visible').attr("aria-hidden", 'true');
+                    $body.removeClass('nav-panel-visible');    
+                }
+            }
+        }
+        
+    }());
+                     
     /*
     Homepage Slide In Nav
     =====================================================================*/
@@ -99,11 +157,12 @@
     }());
        
     
-  /*
+
+    /*
     Sticky left navigation that stops at footer
     =====================================================================*/
     var sidebarNav = (function () {
-
+        
         //bind events
         $(window).on('scroll', fixedMainNav);
         
@@ -146,7 +205,6 @@
                 });
             }
         }     
-        
 
         fixedMainNav()
         
@@ -155,4 +213,40 @@
         };
  
     }());   
+    
+    /* 
+    Fade Hero content on scroll
+    =====================================================================*/
+    var fadeStart = 100,
+        fadeUntil = 700,
+        $fading = $('.hero-inner');
+
+    $(window).bind('scroll', function(){
+        var offset = $(document).scrollTop(),
+            opacity = 0;
+        if( offset<=fadeStart ){
+            opacity = 1;
+        }else if( offset<=fadeUntil ){
+            opacity = 1 - offset/fadeUntil;
+        }
+        $fading.css('opacity',opacity);
+    });
+    
+    /*
+    Notification bell
+    =====================================================================*/
+    var notificationBell = (function () {
+        $bell = $('.fa-bell');
+        $bellCount = $('.bell-count');
+        $count = $('#notifications ul li').length;
+        
+        if($count > 0){
+            $bell.addClass('shakeitbaby animated tada'); 
+            $bellCount.text($count);
+        } else {
+            $bellCount.hide();    
+        }
+        
+    }());    
+        
 }) (jQuery);
