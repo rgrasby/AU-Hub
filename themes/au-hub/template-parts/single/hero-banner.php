@@ -1,6 +1,6 @@
 
 <!--Check if post has a featured image. If not just show title-->
-<?php if ( has_post_thumbnail() ) :
+<?php if (get_field('hero_banner')):
     $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'sixteen-by-nine' ); ?>
 
     <div id="hero">
@@ -23,6 +23,7 @@
                     <p>scroll down</p>
                 </a>
             </div>
+            <?php get_template_part( 'template-parts/content/format', 'icon' ); ?>
         </div>
     </div>
 
@@ -34,8 +35,8 @@
             <div class="post-meta-top">
                 <ul class="categories">
                     <li><?php echo get_the_category_list('<span> / </span>'); ?></li>
-                    <li><?php echo get_the_date(); ?></li>
                 </ul>
+                <span>| <?php echo get_the_date(); ?></span>
             </div>
         </div>
     </div>

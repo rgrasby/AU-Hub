@@ -1,39 +1,45 @@
-.featured{
+.featured {
     overflow: hidden;
     height: 100%;
     position: relative;
-    .featured-bg{
-        opacity: 0.65;  
+    height: 450px;
+    .featured-bg {
+        opacity: 0.7;
         position: relative;
         z-index: 9;
     }
-    .featured-content{
+    h2{
+        font-weight: 600;   
+    }
+    .featured-content {
         position: absolute;
         z-index: 99;
         left: 1.5em;
         bottom: 1.5em;
         width: 60%;
-        h2{
+        h2 {
             text-transform: uppercase;
-            font-size: 2.5em;
+            font-size: 1.6em;
             margin: 0;
-            a{
+            a {
                 color: white;
                 @include text-shadow;
             }
         }
-        ul{
+        ul {
             padding: 0;
+            margin: 0.3em 0 0;
             color: white;
             list-style: none;
-            li{
-                a{
-                    color: white;                   
+            li {
+                a {
+                    color: white;
+                    @include text-shadow;
                 }
             }
         }
     }
-    .featured-bg-color{
+    .featured-bg-color {
         position: relative;
         background: radial-gradient(40em at top right, #db6331, transparent);
         background-color: $blue;
@@ -45,20 +51,34 @@
         left: 0;
         right: 0;
     }
+    @include post-format;
 }
 
-.featured-md{
-    .featured-bg-color{
-        background: radial-gradient(20em at top right, #db6331, transparent);  
+.featured-md {
+    .featured-bg-color {
+        background: radial-gradient(20em at top right, #db6331, transparent);
         background-color: $blue;
     }
 }
 
-#primary-featured{
-    .featured-content{
-        h2{
+#primary-featured {
+    margin-bottom: 30px;
+    .featured-content {
+        h2 {
             text-transform: uppercase;
             font-size: 2.5em;
         }
     }
+}
+
+#featured-posts {
+    margin-top: 4em;
+}
+
+.featured-bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
 }

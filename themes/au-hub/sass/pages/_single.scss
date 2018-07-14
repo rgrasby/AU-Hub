@@ -4,9 +4,27 @@
 * Styles for single.php and single-portfolio.php
 */
 
-#post-intro, .owl-carousel, .content-only, .image-row{
+.owl-carousel, .image-row, .media, .img-quote-row, #comments, #gallery{
     margin: 4em 0;
 } 
+
+#post-intro{
+    margin: 4em 0 1em;
+}
+
+.full-width-quote{
+    margin: 2em 0;
+    padding: 0 2em;
+}
+
+#gallery{
+    margin-top: -30px;
+}
+
+
+.content-only{
+    margin-top: 0;
+}
 
 .first-letter{
     color: $blue;
@@ -17,10 +35,55 @@
     line-height: 0.9em;
     position: relative;
     top: 2px;
+    left: -2px;
 }
 
+.img-quote-row{
+    display: flex;
+    div[class*="col"]{
+        align-self: center;
+    }
+    blockquote{
+        font-style: italic;
+        font-weight: 400;
+        font-size: 1.8em;
+        color: $blue;
+    }
+}
+
+//flexible fields
+.full-width-quote{
+    font-size: 2em;
+    font-style: italic;
+    color: $blue;
+}
+
+//content with floating images
+.img-left{
+    float: left;
+    margin: 0.5em 1.5em 1em 0;
+    max-width: 300px;
+}
+
+.img-right{
+    float: right;
+    margin: 0.5em 0 1em 1.5em;
+    max-width: 300px;
+}
+
+//imgage slider
+.owl-carousel{
+    .item{
+        height: 600px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+//chat post format
 .qa-row{
     margin-bottom: 4em;
+    margin-top: 4em;
     .qa-wrap{
         margin-bottom: 2em;
         display: flex;
@@ -40,6 +103,9 @@
             align-items: center;
             overflow: hidden;
             margin: auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         svg{
             width: 32px;
@@ -75,5 +141,95 @@
             padding: 0.5em 1.5em;
             border-radius: 3px;
         }
+    }
+}
+
+//Gallery post format
+.image{
+    margin-top: 30px;
+}
+
+//related posts
+#related{
+    background: $gray-light;
+    padding: 3em 0;
+    article{
+        margin-bottom: 0;
+    }
+}
+
+//meta box showing categories, date, and tags
+.meta-box{
+    border: 1px solid $border-color;
+    position: relative;
+    margin: 8em 0 2em;
+    padding: 1em;
+    @include media-breakpoint-up(sm) { 
+        padding: 3em 2em 2em;
+    }
+    .meta-row{
+       margin: 1.5em 0;
+    }
+    strong{ 
+        min-width: 100px;
+        display: inline-block;
+    }
+    ul{
+        list-style: none;
+        display: inline-block;
+        margin: 0;
+        li{
+            margin: 0;
+            a{
+                color: $text-color;
+            }
+        }
+    }
+    &:before{
+        content: '';
+        width: 100px;
+        height: 10px;
+        display: block;
+        background: white;
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        margin-left: -50px;
+    }
+    .shield-logo{
+        width: 45px;
+        height: 60px;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        margin-left: -22px;
+        .shield{
+            fill: $orange;
+        }
+    }
+}
+
+//comment section
+#comments{
+    #wpdevar_comment_3{
+        >span{
+            display: none;
+        }
+    }   
+}
+
+//no hero banner
+#title-only{
+    h1{
+        color: $orange;
+        margin-bottom: 0.5em;
+    }
+    .categories{
+        padding-left: 0;
+        margin: 0;
+        list-style: none;
+    }
+    +#post-intro{
+        margin-top: 2em;
     }
 }

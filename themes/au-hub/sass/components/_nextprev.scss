@@ -1,0 +1,91 @@
+//Next and Previous Links
+#prev-next{
+    display: flex;
+    padding: 0 0 4em;
+    &::before{
+        content: '';
+        width: 1px;
+        height: 100px;
+        background: white;
+        opacity: 0.2;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+    }
+    .post-previous, .post-next{
+        width: calc(50% - 1em);
+        &:hover{
+            .thumbnail{
+                &::before, i{
+                    opacity: 1;
+                    transition: all 0.3s ease-out;            
+                }
+            }
+        }
+        a{
+            display: flex; 
+            flex-direction: row;
+            background: $blue;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    .post-previous{
+        padding-right: 1em;
+        margin-left: 1em;
+        a{
+            justify-content: flex-start;
+        }        
+    }
+    .post-next{
+        padding-left: 1em;
+        text-align: right;
+        margin-right: 1em;
+        a{
+            justify-content: flex-end;
+        }
+    }
+    h4{
+        align-self: center;
+        margin-top: -0.5em;
+        font-weight: 600;
+        margin: 0 1.5em;
+        font-size: 1em;
+        color: white;
+        span{
+            display: block;
+            font-weight: 400;
+            font-size: 0.9em;
+            margin: 0 0 0.3em;
+            line-height: 1em;
+        }
+    }
+    .thumbnail{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        &::before, i{
+            opacity: 0;
+            transition: all 0.3s ease-out;            
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26,27, 41, 0.7);
+        }
+        i{
+            position: absolute;
+            font-size: 2em;
+            color: white;
+            opacity: 0.8em;
+        }
+    }
+}
