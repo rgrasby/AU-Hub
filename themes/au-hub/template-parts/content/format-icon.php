@@ -4,20 +4,22 @@
  */
 ?>
 
+
 <?php if ( has_post_format('video') ) : ?> 
-
-    <i class="fa fa-play" aria-hidden="true"></i>
-
+    <div class="post-format-icon" aria-label="Video">
+        <i class="fa fa-play" aria-hidden="true"></i>
+    </div>
 <?php elseif ( has_post_format('audio') ) : ?>
-
-    <i class="fa fa-headphones" aria-hidden="true"></i>
-
+    <div class="post-format-icon" aria-label="Podcast">
+        <i class="fa fa-headphones" aria-hidden="true"></i>
+    </div>
 <?php elseif ( has_post_format('gallery') ) : ?>
-
-    <i class="fa fa-picture-o" aria-hidden="true"></i>
-
+    <div class="post-format-icon" aria-label="Image Gallery">
+        <i class="fa fa-picture-o" aria-hidden="true"></i>
+    </div>
 <?php elseif ( has_post_format('chat') ) : ?>
-
-    <i class="fa fa-comments" aria-hidden="true"></i>
-
+    <div class="post-format-icon" aria-label="Faculty Q&A">
+        <i class="fa fa-comments" aria-hidden="true"></i>
+    </div>
 <?php endif; ?>
+    

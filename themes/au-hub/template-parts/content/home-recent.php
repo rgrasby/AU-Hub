@@ -1,11 +1,20 @@
-    <div class="row">
+<div class="row">
 
-        <?php $the_query = new WP_Query( 'posts_per_page=6' ); ?>
+    <?php 
 
-        <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
-            <div class="col-sm-4">
-                <?php get_template_part( 'template-parts/blog/blog', 'articles' ); ?>
-            </div>
-        <?php endwhile; wp_reset_postdata(); ?>
+    $featured_posts = array(get_field('primary_featured_post',$post->ID)->ID, get_field('second_featured_post',$post->ID)->ID, get_field('third_featured_post',$post->ID)->ID);
+    $args = array(
+        'posts_per_page' => 9,
+        'post__not_in' => $featured_posts
+    );
+    $the_query = new WP_Query( $args ); ?>
 
-    </div>
+    <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+
+        <div class="col-sm-4">
+            <?php get_template_part( 'template-parts/blog/blog', 'articles' ); ?>
+        </div>
+
+    <?php endwhile; wp_reset_postdata(); ?>
+
+</div>

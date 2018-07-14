@@ -1,5 +1,5 @@
 <div class="section-heading">
-    <h2>Faculty Q&amp;A</h2>
+    <h2>Image Galleries</h2>
 </div>
 
 <div class="row">
@@ -7,7 +7,7 @@
     <div class="col-sm-6"> 
         <?php
 
-        $faculty_featured_post = get_field('faculty_featured_post');
+        $faculty_featured_post = get_field('gallery_featured_post');
 
         if( $faculty_featured_post ): 
 
@@ -34,9 +34,9 @@
         <?php endif; ?>
     </div> 
     
-    <!--Get most recent video format posts-->
+    <!--Get most recent image gallery format posts-->
     <?php
-    $featured_posts = array(get_field('faculty_featured_post',$post->ID)->ID);
+    $featured_posts = array(get_field('gallery_featured_post',$post->ID)->ID);
     $args = array(
         'posts_per_page' => 4,
         'post__not_in'   => $featured_posts,
@@ -44,20 +44,18 @@
                 array(
                     'taxonomy' => 'post_format',
                     'field'    => 'slug',
-                    'terms'    => array( 'post-format-chat' ),
+                    'terms'    => array( 'post-format-gallery' ),
                 ),
             ),
     );
     $the_query = new WP_Query( $args ); ?>
-    
+
     <div class="col-sm-6">
-        
-        <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+    <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
 
-            <?php get_template_part( 'template-parts/blog/blog', 'articles-horizontal' ); ?>
+        <?php get_template_part( 'template-parts/blog/blog', 'articles-horizontal' ); ?>
 
-        <?php endwhile; wp_reset_postdata(); ?>
-        
+    <?php endwhile; wp_reset_postdata(); ?>
     </div>
-
 </div>
+    

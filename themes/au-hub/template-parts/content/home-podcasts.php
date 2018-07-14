@@ -1,4 +1,6 @@
-<h2>Podcasts</h2>
+<div class="section-heading">
+    <h2>Podcasts</h2>
+</div>
 
 <div class="row">
 
@@ -14,15 +16,19 @@
 
             ?>
 
-            <div id="video-featured" class="featured">
-                <div class="featured-bg" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post, 'large' );?>)">
-                    <div class="featured-content"> 
-                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                    </div>
-                    <?php get_template_part( 'template-parts/content/format', 'icon' ); ?>
+            <div id="podcast-featured" class="featured featured-md">
+                <div class="featured-bg" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post, 'large' );?>)"> </div>
+                <div class="featured-bg-color"></div>
+                <div class="featured-content"> 
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <ul class="categories">
+                        <li><?php echo get_the_category_list('<span> / </span>'); ?></li>
+                    </ul>
                 </div>
             </div>
-            
+            <div class="featured-intro">
+                <p><?php the_field('intro')?></p>
+            </div>
             <?php wp_reset_postdata(); ?>
 
         <?php endif; ?>
@@ -30,9 +36,11 @@
     
     <!--Get most recent video format posts-->
     <?php
+        $featured_posts = array(get_field('podcast_featured_post',$post->ID)->ID);
         $args = array(
             'post_type'      => 'post',
             'posts_per_page' => '4',
+            'post__not_in'   => $featured_posts,
             'tax_query'      => array(
                 array(
                     'taxonomy' => 'post_format',
