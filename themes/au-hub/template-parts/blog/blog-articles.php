@@ -4,8 +4,10 @@
     <?php if ( has_post_thumbnail() ) : ?>
     <a href="<?php the_permalink(); ?>" aria-label="Read <?php the_title(); ?>">
         <div class="article-image">
-            <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>" />
-            <?php get_template_part( 'template-parts/content/format', 'icon' ); ?>
+            <a href="<?php the_permalink(); ?>" aria-label="Read <?php the_title(); ?>">
+                <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>" />
+                <?php get_template_part( 'template-parts/content/format', 'icon' ); ?>
+            </a>
         </div>
     </a>
     <?php endif; ?>

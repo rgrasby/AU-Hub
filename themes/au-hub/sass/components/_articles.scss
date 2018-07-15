@@ -5,23 +5,56 @@ article{
         margin-top: 0.5em;
         font-weight: 600;
     }
+    .article-image{
+        position: relative;
+        @include post-format;
+        overflow: hidden;
+        .post-format-icon{
+            bottom: 0.5em;
+        }
+        a{
+            img{
+                transition: all 0.3s ease-in;
+                transform: scale(1.0);
+            }
+            &:hover{
+                img{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
     &.horizontal{
         display: flex;
         &:last-of-type{
             margin-bottom: 0;
-        }
+        }          
         .article-image{
             flex-shrink: 0;
             margin-right: 1em;
-            flex-basis: 125px;
+            width: 125px;
+            a{
+                img{
+                    transition: all 0.3s ease-in;
+                    transform: scale(1.0);
+                }
+                &:hover{
+                    img{
+                        transform: scale(1.1);
+                    }
+                }
+            }
         }
+
         h2{
             font-size: 1.2em;
             margin-top: 0;
         }
+        
         .post-date{
             font-size: 0.9em;
         }
+        
         .categories{
             margin: 0.3em 0 0.1em;
             &::after{
@@ -34,6 +67,7 @@ article{
             }
         }
     } 
+    
     .categories{
         padding: 0;
         list-style: none;
@@ -57,12 +91,4 @@ article{
 
 .categories{
     display: inline-block;
-}
-
-.article-image{
-    position: relative;
-    @include post-format;
-    .post-format-icon{
-        bottom: 0.5em;
-    }
 }

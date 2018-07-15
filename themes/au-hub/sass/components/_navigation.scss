@@ -11,9 +11,6 @@
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease-in;
-    .nav-panel-label.close {
-        display: none;
-    }
     &:focus,
     &:hover {
         background: darken($orange, 10%);
@@ -64,11 +61,6 @@
         height: 100%;
         overflow-x: hidden;
         width: $main-nav-width;
-    }
-    .nav-panel-label {
-        &.default {
-            display: inline-block;
-        }
     }
     &.visible {
         transform: translate(0);

@@ -68,7 +68,7 @@
         <div id="content-container">
             <div id="breadcrumb">
                 <div id="open-main-nav">
-                    <div class="hamburger" tabindex="0" aria-label="Menu" role="button" aria-controls="main-navigation-container">
+                    <div class="hamburger hamburger hamburger--slider js-hamburger" tabindex="0" aria-label="Menu" role="button" aria-controls="main-navigation-container">
                         <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
                         </span>

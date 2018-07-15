@@ -15,11 +15,6 @@
         nav:true,
         items:1
     })
-    
-   
-    $parentCategory = $(".categories li:first-child a:contains('AU News Hub')");
-    $parentCategory.hide();
-    $parentCategory.next().hide();
  
     /*
     Sticky Header for #main-header
@@ -156,8 +151,6 @@
          
     }());
        
-    
-
     /*
     Sticky left navigation that stops at footer
     =====================================================================*/
@@ -221,7 +214,7 @@
         fadeUntil = 700,
         $fading = $('.hero-inner');
 
-    $(window).bind('scroll', function(){
+    $(window).on('scroll', function(){
         var offset = $(document).scrollTop(),
             opacity = 0;
         if( offset<=fadeStart ){
@@ -249,4 +242,22 @@
         
     }());    
         
+    /*
+    Hamburgers
+    =====================================================================*/
+    var hamburger = (function () {
+        $openmainnav = $('#open-main-nav');
+        $hamburger = $('.hamburger');    
+        $openState = $('.nav-panel-label-default');
+        $closedState = $('.nav-panel-label-close');
+        
+        //bind events
+        $hamburger.on('click', menuOpen);
+        
+        function menuOpen(){
+            $hamburger.toggleClass('is-active'); 
+        }
+        
+    }());    
+    
 }) (jQuery);
