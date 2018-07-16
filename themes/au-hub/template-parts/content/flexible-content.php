@@ -159,6 +159,13 @@
                 </blockquote>
             </div>
 
+        <!--iframe-->
+        <?php elseif ( get_row_layout() == 'iframe_code' ) : ?>
+
+            <div class="resp-container">
+                <?php the_sub_field('iframe'); ?>
+            </div>
+
         <!--quote with image -->
         <?php elseif ( get_row_layout() == 'pull_quote_with_image' ) : ?>
             <div class="container">

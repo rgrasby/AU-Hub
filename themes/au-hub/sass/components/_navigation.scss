@@ -75,6 +75,9 @@
         position: relative;
         line-height: 1.5em;
         &:hover{
+            &:before{
+                color: $gray-darker;
+            }
             &::after{
                 content: '';
                 position: absolute;

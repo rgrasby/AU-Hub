@@ -2,11 +2,18 @@
 
     <div class="container">
         <?php if ( have_posts() ) : ?>
-            <header class="page-header">
-                <?php
-                    the_archive_title( '<h1 class="page-title">', '</h1>' );
-                ?>
-            </header><!-- .page-header -->
+        
+            <?php if ( has_post_format('audio') ) : ?>
+        
+                <header class="page-header">
+                    <h1 class="page-title">Podcasts</h1>
+                </header>
+        
+            <?php else: ?>
+
+                <?php the_archive_title( '<h1 class="page-title">', '</h1>' );?>       
+
+            <?php endif; ?>
         <?php endif; ?>
         
         <div id="articles">

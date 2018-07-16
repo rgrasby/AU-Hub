@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="featured-intro">
-                <p><?php the_field('intro')?> <a href="<?php the_permalink(); ?>"><strong><?php the_title(); ?></strong></a></p>
+                <p><?php the_field('intro')?></p>
             </div>
             <?php wp_reset_postdata(); ?>
  
