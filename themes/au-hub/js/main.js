@@ -134,6 +134,7 @@
         function slideInNav() {
             $mainNavContainer.toggleClass('visible');   
             $contentContainer.toggleClass('main-nav-showing');
+            $hamburger.toggleClass('is-active'); 
             $breadcrumb.toggleClass('push-over');
         }
          
@@ -240,24 +241,6 @@
             $bellCount.hide();    
         }
         
-    }());    
-        
-    /*
-    Hamburgers
-    =====================================================================*/
-    var hamburger = (function () {
-        $openmainnav = $('#open-main-nav');
-        $hamburger = $('.hamburger');    
-        $openState = $('.nav-panel-label-default');
-        $closedState = $('.nav-panel-label-close');
-        
-        //bind events
-        $hamburger.on('click', menuOpen);
-        
-        function menuOpen(){
-            $hamburger.toggleClass('is-active'); 
-        }
-        
-    }());    
+    }());        
     
 }) (jQuery);

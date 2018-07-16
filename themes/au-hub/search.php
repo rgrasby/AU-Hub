@@ -14,7 +14,9 @@ get_header(); ?>
 
 <div class="container">
     <?php if ( have_posts() ) : ?>
-        <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'auhub' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+        <header class="page-header">
+            <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'auhub' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+        </header>
     <?php else : ?>
         <h1 class="page-title"><?php _e( 'Nothing Found', 'auhub' ); ?></h1>
     <?php endif; ?>

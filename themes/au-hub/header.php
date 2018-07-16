@@ -30,6 +30,8 @@
                     <?php
                     if ( is_archive() ) : ?>
                         <span class="page-name"><?php the_archive_title();?></span>
+                    <?php elseif( is_home() ) : ?>
+                        <span class="page-name">Recent Posts</span>
                     <?php elseif( is_search() ):; ?>
                         <span class="page-name">Search Results</span>
                     <?php else:; ?>
