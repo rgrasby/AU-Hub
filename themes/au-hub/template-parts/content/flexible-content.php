@@ -29,29 +29,33 @@
 
 
         <!-- Check if it is a video-->
-        <?php if ( has_post_format('video') ) : ?> 
-        <div class="media">
-            <div class="video">
-                <div class="container">
-                    <div class="resp-container">
-                        <?php the_field('video_embed_code'); ?>
+        <?php if (!get_field('move_video_to_bottom')): ?>
+            <?php if ( has_post_format('video') ) : ?> 
+            <div class="media">
+                <div class="video">
+                    <div class="container">
+                        <div class="resp-container">
+                            <?php the_field('video_embed_code'); ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <?php endif; ?>
         <?php endif; ?>
 
         <!-- Check if it is an audio-->
-        <?php if ( has_post_format('audio') ) : ?> 
-        <div class="media">
-            <div class="audio">
-                <div class="container">
-                    <div class="resp-container">
-                        <?php the_field('audio_embed_code'); ?>
+        <?php if (!get_field('move_audio_to_bottom')): ?>
+            <?php if ( has_post_format('audio') ) : ?> 
+            <div class="media">
+                <div class="audio">
+                    <div class="container">
+                        <div class="resp-container">
+                            <?php the_field('audio_embed_code'); ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <?php endif; ?>
         <?php endif; ?>
         
         <!-- Check if it is an image gallery-->
@@ -159,13 +163,6 @@
                 </blockquote>
             </div>
 
-        <!--iframe-->
-        <?php elseif ( get_row_layout() == 'iframe_code' ) : ?>
-
-            <div class="resp-container">
-                <?php the_sub_field('iframe'); ?>
-            </div>
-
         <!--quote with image -->
         <?php elseif ( get_row_layout() == 'pull_quote_with_image' ) : ?>
             <div class="container">
@@ -211,6 +208,34 @@
 
     <?php endwhile; endif; ?><!--end post builder flexible content-->
 
+    <?php if (get_field('move_video_to_bottom')): ?>
+        <?php if ( has_post_format('video') ) : ?> 
+        <div class="media">
+            <div class="video">
+                <div class="container">
+                    <div class="resp-container">
+                        <?php the_field('video_embed_code'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <!-- Check if it is an audio-->
+    <?php if (get_field('move_audio_to_bottom')): ?>
+        <?php if ( has_post_format('audio') ) : ?> 
+        <div class="media">
+            <div class="audio">
+                <div class="container">
+                    <div class="resp-container">
+                        <?php the_field('audio_embed_code'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+    <?php endif; ?>
     <?php wp_reset_query(); ?>
 
         

@@ -16,6 +16,7 @@
         items:1
     })
  
+    $('iframe').load(function(){$(this).height($(this).contents().outerHeight());});
     /*
     Sticky Header for #main-header
     =====================================================================*/
