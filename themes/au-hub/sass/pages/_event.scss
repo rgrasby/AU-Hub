@@ -1,0 +1,119 @@
+/* Category */
+
+.post-type-archive-events {
+    .meta-event {
+        p {
+            margin: 0.3em 0;
+            color: lighten($text-color, 15%);
+            strong {
+                color: $text-color;
+            }
+        }
+    }
+}
+
+#event-posts {
+    article {
+        &.horizontal {
+            .meta-event {
+                p {
+                    margin: 0.3em 0;
+                    color: lighten($text-color, 15%);
+                    strong {
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Single Event Page */
+
+.single-events {
+    .featured {
+        margin-top: 4em;
+        .featured-bg {
+            height: 550px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            &:hover {
+                height: 550px;
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+    .featured-content {
+        h1 {
+            color: white;
+            @include text-shadow;
+            margin-bottom: 0;
+            font-size: 1.8em;
+            @include media-breakpoint-up(sm) {
+                font-size: 2em;
+            }
+            @include media-breakpoint-up(md) {
+                font-size: 3em;
+            }
+        }
+    }
+    .meta-box {
+        &.meta-box-events {
+            display: block;
+            padding: 1em;
+            @include media-breakpoint-up(sm) {
+                padding: 2em;    
+            }
+            &::before {
+                display: none;
+            }
+            strong {
+                margin-bottom: 1em;
+                @include media-breakpoint-up(sm) {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            .meta-row {
+                margin: 1em 0;
+                display: block;
+                position: relative;
+                &:first-of-type {
+                    margin-top: 0;
+                }
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+                &.location {
+                    .meta-content {
+                        line-height: 1.6em;
+                    }
+                }
+                .meta-content {
+                    p {
+                        &:first-of-type {
+                            margin-top: 0;
+                        }
+                    }
+                    @include media-breakpoint-up(sm) {
+                        padding-left: 150px;
+                    }
+                }
+            }
+            .event-cta {
+                display: flex;
+                justify-content: center;
+                @include media-breakpoint-up(sm) {
+                    justify-content: flex-end;
+                }
+            }
+        }
+        p {
+            flex-grow: 1;
+        }
+    }
+}
