@@ -32,7 +32,7 @@ function au_setup() {
     //custom image sizes
     add_image_size( 'six-by-four', 1000, 667, TRUE ); 
     add_image_size( 'sixteen-by-nine', 2000, 1126, TRUE ); 
-    add_image_size( 'square', 1000, 1000, TRUE ); 
+    add_image_size( 'square', 800, 800, TRUE ); 
     add_image_size( 'medium', 300, 200, TRUE );
     add_image_size( 'large', 1000, 600, TRUE );
     
@@ -222,3 +222,16 @@ function rename_post_formats($translation, $text, $context, $domain) {
     return $translation;
 }
 add_filter('gettext_with_context', 'rename_post_formats', 10, 4);
+
+/**
+ * Limit output words from ACF fields
+ */
+function limit_words($string, $word_limit) {
+	$string = strip_tags($string);
+	$words = explode(' ', strip_tags($string));
+	$return = trim(implode(' ', array_slice($words, 0, $word_limit)));
+	if(strlen($return) < strlen($string)){
+	$return .= '...';
+	}
+	return $return;
+}
