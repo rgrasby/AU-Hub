@@ -16,13 +16,9 @@
                 <div class="featured-bg-color"></div>
                 <div class="featured-content"> 
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <?php if( get_post_type() == 'events' ) : ?>
-                        <p><strong>Event Date:</strong> <?php the_field('event_start_date_time')?><?php if( 'event_start_date_time' ) : ?> - <?php the_field('event_end_date_time')?> <?php endif; ?></p>
-                    <?php else: ?>
-                        <ul class="categories">
-                            <li><?php echo get_the_category_list('<span> / </span>'); ?></li>
-                        </ul>
-                    <?php endif; ?>
+                    <ul class="categories">
+                        <li><?php echo get_the_category_list('<span> / </span>'); ?></li>
+                    </ul>
                 </div>
                 <?php get_template_part( 'template-parts/content/format', 'icon' ); ?>
             </div>
