@@ -1,12 +1,17 @@
 ( function($) {
 
-    $mainHeader = $('#main-header'),
-    $mainNavContainer = $('#main-navigation-container'),
-    $mainNavigationInner = $('#main-navigation-inner'),
-    $scrollTop = $(window).scrollTop(),
-    $headerHeight = $mainHeader.outerHeight(),
-    $navAnchor = $('#nav-anchor'),
-    $headerShiv = $('.header-shiv')
+    var $mainHeader = $('#main-header'),
+        $mainNavContainer = $('#main-navigation-container'),
+        $mainNavigationInner = $('#main-navigation-inner'),
+        $scrollTop = $(window).scrollTop(),
+        $headerHeight = $mainHeader.outerHeight(),
+        $navAnchor = $('#nav-anchor'),
+        $headerShiv = $('.header-shiv'),
+        $headerActions = $('#header-actions'),
+        $contentHeader = $('#content-container'),
+        resizeTimer,
+        breakpoint = 576
+
     
     //single post slider
     $('.owl-carousel').owlCarousel({
@@ -16,7 +21,67 @@
         items:1
     })
  
-    $('iframe').load(function(){$(this).height($(this).contents().outerHeight());});
+    /* 
+    Check if window resizing is done and call functions when resizing is complete
+    =====================================================================*/
+    $(window).on('resize', function(e) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            $headerHeight = $mainHeader.outerHeight(),
+            $headerHeightt = $headerHeight,
+            windowWidth = checkWindowWidth();   
+            //move #au-site-nav if necessary
+            moveNavigation();
+
+            //stick navigation if necessary
+            stickyMainNav.stickNav();
+            
+            if(checkWindowWidth()){
+                sidebarNav.fixedMainNav();
+            } else{
+                $mainNavContainer.attr("style", "");
+            }
+    
+        }, 250);
+    });
+      
+    /* 
+    Check window width (scrollbar included)   
+    =====================================================================*/
+    function checkWindowWidth() {
+		var e = window, 
+            a = 'inner';
+        if (!('innerWidth' in window )) {
+            a = 'client';
+            e = document.documentElement || document.body;
+        }
+        if ( e[ a+'Width' ] >= breakpoint ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+    
+    /* 
+    Move #au-site-nav depending on breakpoint variable 
+    Move utility navigation into #au-site-nav on mainsite
+    Move utility navigation to footer on subsites. Needed to make room for contextual navigation
+    ===========================================================================================*/
+    function moveNavigation(){
+		var $navigation = $('#main-navigation-container'),
+  		    desktop = checkWindowWidth();
+            if ( desktop ) {
+                $navigation.detach();
+                $navigation.prependTo($contentHeader);
+            } else {
+                //we are on a smaller device
+                $navigation.detach();
+                $navigation.appendTo('#au-site-nav-panel');
+            }
+	}
+    //make sure #au-site-nav is in the correct location
+    moveNavigation();
+    
     /*
     Sticky Header for #main-header
     =====================================================================*/
@@ -59,7 +124,6 @@
     Navigation panels for Support centre, search and mobile menu
     =====================================================================*/
     var navPanels = (function () {
-        
         //variables
         var $navPanelToggle = $('.nav-panel-toggle'),
             $navPanel = $('.nav-panel'),
@@ -72,8 +136,7 @@
         function openNavPanel(e) {
             var $this = $(this),
                 $activePanel = $(this).attr('href'); 
-                
-    
+            
             //position .nav-panels based on if #main-header is sticky
             stickyMainNav.stickNav();
             
@@ -84,7 +147,7 @@
             $navPanel.removeClass('is-visible').attr("aria-hidden", 'true');
             
             $this.toggleClass('active');
-                console.log('hello');
+            
             //automatically focus to search input on click of #search-trigger a
             if($activePanel === '#site-search'){
                 $('#au-search').find('input[type=text]').val('');
@@ -102,11 +165,20 @@
             } 
         }
         
+        /*
+        Prevents iOS from scrolling even when overflow: hidden is applied
+        =====================================================================*/ 
+        $('.nav-panel-visible').on('touchmove', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+        
         //close nav panels if clicked anywhere outside of them
         function closeNavPanels(event){
             if(event){
                 var target = event.target; 
-                if (!jQuery(target).is('#header-right *') ) {
+                if (!jQuery(target).is('#header-actions *') ) {
                     $navPanelToggle.removeClass('active').attr("aria-expanded", 'false');
                     $navPanel.removeClass('is-visible').attr("aria-hidden", 'true');
                     $body.removeClass('nav-panel-visible');    
@@ -151,6 +223,27 @@
             }
         }
          
+        /*
+        Prevents iOS from scrolling even when overflow: hidden is applied
+        =====================================================================*/ 
+        $('.nav-panel-visible').on('touchmove', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+        
+        //close nav panels if clicked anywhere outside of them
+        function closeNavPanels(event){
+            if(event){
+                var target = event.target; 
+                if (!jQuery(target).is('#au-right-nav *') ) {
+                    $navPanelToggle.removeClass('active').attr("aria-expanded", 'false');
+                    $navPanel.removeClass('is-visible').attr("aria-hidden", 'true');
+                    $body.removeClass('nav-panel-visible');    
+                }
+            }
+        }
+         
     }());
        
     /*
@@ -171,43 +264,46 @@
                 $div_top = $navAnchor.offset().top,
                 $div_height = $mainNavContainer.height();
 
-            //sticky sidebar is at the bottom of viewport
-            if ($window_top + $div_height > $footer_top){
-                $mainNavContainer.removeClass('sticky');
-                $mainNavContainer.removeClass('at-top');
-                $mainNavContainer.css({
-                    'position': 'absolute',
-                    'bottom': 0,
-                    'top': 'auto'
-                });
-            //sticky sidebar is in middle of viewport
-            } else if ($window_top > $div_top) {
-                $mainNavContainer.addClass('sticky');
-                $mainNavContainer.removeClass('at-top');
-                $mainNavContainer.css({
-                    'position': 'fixed',
-                    'bottom': 'auto',
-                    'top': 0
-                });
-            //sticky sidebar is at the top
-            } else {
-                $mainNavContainer.removeClass('sticky');
-                $mainNavContainer.addClass('at-top');
-                $mainNavContainer.css({
-                    'position': 'fixed',
-                    'bottom': '0',
-                    'top': 0
-                });
+            if(checkWindowWidth()){
+                //sticky sidebar is at the bottom of viewport
+                if ($window_top + $div_height > $footer_top){
+                    $mainNavContainer.removeClass('sticky');
+                    $mainNavContainer.removeClass('at-top');
+                    $mainNavContainer.css({
+                        'position': 'absolute',
+                        'bottom': 0,
+                        'top': 'auto'
+                    });
+                //sticky sidebar is in middle of viewport
+                } else if ($window_top > $div_top) {
+                    $mainNavContainer.addClass('sticky');
+                    $mainNavContainer.removeClass('at-top');
+                    $mainNavContainer.css({
+                        'position': 'fixed',
+                        'bottom': 'auto',
+                        'top': 0
+                    });
+                //sticky sidebar is at the top
+                } else {
+                    $mainNavContainer.removeClass('sticky');
+                    $mainNavContainer.addClass('at-top');
+                    $mainNavContainer.css({
+                        'position': 'fixed',
+                        'bottom': '0',
+                        'top': 0
+                    });
+                }
             }
-        }     
-
-        fixedMainNav()
+        }   
+        
+        fixedMainNav();
         
         return {
-            fixedMainNav: fixedMainNav,
+            fixedMainNav: fixedMainNav
         };
  
     }());   
+    
     
     /* 
     Fade Hero content on scroll
@@ -240,6 +336,18 @@
             $bellCount.text($count);
         } else {
             $bellCount.hide();    
+        }
+        
+    }());        
+    
+    /* 
+    Count faculty items. Change classes accordingly
+    =====================================================================*/
+    var facultHome = (function () {
+        $subStoryCount = $('#faculty-stories .horizontal').length;
+        console.log($subStoryCount);
+        if($subStoryCount == 0){
+            $('#faculty-stories .row .col-md-6:first-of-type').removeClass('col-md-6').addClass('col-md-12');  
         }
         
     }());        

@@ -1,10 +1,4 @@
-<a href="#notifications" aria-expanded="false" class="nav-panel-toggle" aria-label="View notification and deadlines" role="button" aria-controls="notifications">
-    <span class="nav-panel-close"></span>
-    <i class="fa fa-bell" aria-hidden="true"><span class="bell-count"></span></i>
-    <span class="sr-only">Notification</span>
-</a>
-<div id="notifications" class="nav-panel" aria-hidden="true">
-    <div class="nav-panel-inner">
+
         <ul>
         <?php 
 
@@ -66,7 +60,5 @@
         <?php endwhile; wp_reset_postdata(); ?>
     </ul>
 
-    </div>
-</div><!-- END #site-search -->
 
     
