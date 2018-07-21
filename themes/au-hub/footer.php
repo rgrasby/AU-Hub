@@ -7,7 +7,7 @@
                     <?php echo do_shortcode("[instagram-feed carousel=true imagepadding=5]"); ?>     
 
                     <div class="footer-inner">
-                    
+
                             <div class="container">
                                 <div class="sign-up">
                                     <h3>Subscribe</h3>
@@ -62,7 +62,7 @@
                 <footer id="secondary-footer">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <div class="main-au-site">
                                     <div class="shield-logo">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 145"><title>Athabasca University Shield</title><path class="shield" d="M1.3 4v88.3c0 29.3 48.7 49.4 48.7 49.4s48.7-20 48.7-49.4V4H1.3zM81 92.3c0 9.7-16.5 22.5-31 29.9-14.7-7.5-31-20.1-31-29.9V21.7h62v70.6z"></path></svg>
@@ -70,14 +70,13 @@
                                     <p>Visit Main AU Website</p>
                                 </div>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-6">
                                 <div id="copyright">&copy; <?php echo date('Y'); ?> Athabasca University. All rights reserved.</div>
                             </div>
                         </div>
                     </div>
                 </footer>
-            </div><!-- END #inner-page-wrapper -->
-        </div><!-- END #page -->
+            </div><!-- END #page -->
 
 <?php wp_footer(); ?>
 
