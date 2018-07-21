@@ -4,7 +4,7 @@
 
 <div class="row">
 
-    <div class="col-sm-6"> 
+    <div class="col-md-6"> 
         <?php
 
         $faculty_featured_post = get_field('faculty_featured_post');
@@ -27,7 +27,8 @@
                 </div>
             </div>
             <div class="featured-intro">
-                <p><?php the_field('intro')?></p>
+                <?php $intro = get_field('intro') ?>
+                <p><?php echo limit_words($intro, 50); ?></p>
             </div>
             <?php wp_reset_postdata(); ?>
  
@@ -50,12 +51,12 @@
     );
     $the_query = new WP_Query( $args ); ?>
     
-    <div class="col-sm-6">
+    <div class="col-md-6 secondary">
         
         <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
-
+        
             <?php get_template_part( 'template-parts/blog/blog', 'articles-horizontal' ); ?>
-
+        
         <?php endwhile; wp_reset_postdata(); ?>
         
     </div>

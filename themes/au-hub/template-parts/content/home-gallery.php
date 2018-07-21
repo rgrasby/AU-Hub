@@ -1,10 +1,10 @@
-<div class="section-heading">
+e<div class="section-heading">
     <h2>Image Galleries</h2>
 </div>
 
 <div class="row">
 
-    <div class="col-sm-6"> 
+    <div class="col-md-6"> 
         <?php
 
         $faculty_featured_post = get_field('gallery_featured_post');
@@ -16,7 +16,7 @@
 
             ?>
 
-            <div id="faculty-featured" class="featured featured-md">
+            <div id="gallery-featured" class="featured featured-md">
                 <div class="featured-bg" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post, 'large' );?>)"></div>
                 <div class="featured-bg-color"></div>
                 <div class="featured-content"> 
@@ -27,7 +27,8 @@
                 </div>
             </div>
             <div class="featured-intro">
-                <p><?php the_field('intro')?></p>
+                <?php $intro = get_field('intro') ?>
+                <p><?php echo limit_words($intro, 50); ?></p>
             </div>
             <?php wp_reset_postdata(); ?>
  
@@ -50,7 +51,7 @@
     );
     $the_query = new WP_Query( $args ); ?>
 
-    <div class="col-sm-6">
+    <div class="col-md-6 secondary">
     <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
 
         <?php get_template_part( 'template-parts/blog/blog', 'articles-horizontal' ); ?>
