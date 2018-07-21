@@ -1,32 +1,19 @@
 <?php get_header(); ?>
 
     <div class="container">
-        <?php if ( have_posts() ) : ?>
         
-            <?php if ( has_post_format('audio') ) : ?>
-        
-                <header class="page-header">
-                    <h1 class="page-title">Podcasts</h1>
-                </header>
-        
-            <?php else: ?>
+        <?php the_archive_title( '<h1 class="page-title">', '</h1>' );?>       
 
-                <?php the_archive_title( '<h1 class="page-title">', '</h1>' );?>       
-
-            <?php endif; ?>
-        <?php endif; ?>
-        
         <div id="articles">
 
             <div class="article-wrap row">
-
                 <?php
+                //the first two most recent events are larger
                 if ( have_posts() ) :
                     $count = 0; 
                     while (have_posts()) : the_post();
-                        $count++; 
+                    $count++; 
                     ?>
-                       
                         <?php if ($count == 1) : ?>
                             <div class="col-sm-6">					
                                 <?php get_template_part( 'template-parts/blog/blog', 'articles' ); ?>			
@@ -40,7 +27,6 @@
                                 <?php get_template_part( 'template-parts/blog/blog', 'articles' ); ?>			
                             </div>		
                         <?php endif; ?>
-                
                     <?php endwhile;?>
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
