@@ -14,6 +14,15 @@
         
         <hr>
         
+         <section id="event-posts">
+            <?php get_template_part( 'template-parts/content/home', 'events' ); ?>
+            <div class="see-all">
+                <a href="<?php echo get_permalink() ?>events" class="btn btn-circle-icon-lg internal">See all upcoming events</a>
+            </div>
+        </section>
+        
+        <hr>
+        
         <section id="video-posts">
             <?php get_template_part( 'template-parts/content/home', 'videos' ); ?>
             <div class="see-all">
@@ -50,14 +59,7 @@
                 <a href="<?php echo get_post_format_link( 'chat' ) ?>" class="btn btn-circle-icon-lg internal">See all Faculty Q&amp;As</a>
             </div>
         </section>  
-        
-    </div>
 
-    <section id="events">
-        <div class="container">
-            <h2>Upcoming Events at AU</h2>
-            <?php echo do_shortcode("[2code-schedule-draw]"); ?>  
-        </div>
-    </section>
+    </div>
 
 <?php get_footer();
