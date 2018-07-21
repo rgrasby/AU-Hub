@@ -21,5 +21,10 @@
     <div class="post-format-icon" aria-label="Faculty Q&A">
         <i class="fa fa-comments" aria-hidden="true"></i>
     </div>
+<!--Event is an odd duck. It isn;t a post format but a post type -->
+<?php elseif( post_type_exists( 'events' ) ) : ?>
+    <div class="post-format-icon" aria-label="Upcoming Events">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+    </div>
 <?php endif; ?>
     
