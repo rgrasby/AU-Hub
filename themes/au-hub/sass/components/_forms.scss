@@ -38,7 +38,10 @@
             border: 0;
             background: white;
             width: 100%;
-            padding: 1em 9.5em 1em 1em;
+            padding: 1em 8.5em 1em 1em;
+            @include media-breakpoint-up(sm) {
+                padding: 1em 9.5em 1em 1em;
+            }
         }
         h3 {
             font-size: 3em;
@@ -47,6 +50,12 @@
         p {
             font-size: 1.2em;
             margin: 0 0 1em;
+        }
+        .btn-orange{
+            padding: 1.2em 1.8em;
+            @include media-breakpoint-up(sm) {
+                padding: 1.2em 2.5em;
+            }
         }
     }
 }

@@ -107,24 +107,26 @@ $enable-hover-media-query:  false !default; // Deprecated, no longer affects any
 $enable-grid-classes:       true !default;
 $enable-print-styles:       true !default;
 
-
 // Spacing
 //
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-// stylelint-disable
 $spacer: 1rem !default;
 $spacers: () !default;
-$spacers: map-merge((
-  0: 0,
-  1: ($spacer * .25),
-  2: ($spacer * .5),
-  3: $spacer,
-  4: ($spacer * 1.5),
-  5: ($spacer * 3)
-), $spacers);
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3)
+  ),
+  $spacers
+);
 
 // This variable affects the `.h-*` and `.w-*` classes.
 $sizes: () !default;

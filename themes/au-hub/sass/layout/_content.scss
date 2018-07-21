@@ -2,7 +2,7 @@
     position: relative;
     transition: all 0.3s ease-in;
     &.main-nav-showing{
-        padding-left: $main-nav-width;
+        transform: translate(300px);
     }
 }
 

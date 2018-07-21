@@ -2,14 +2,16 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
-    padding: 0 1rem 0 0;
+    padding: 0 1rem;
     position: relative;
     z-index: 99993;
     background: white;
     overflow: hidden;
     height: 50px;
     color: $alt-blue;
-    @include media-breakpoint-up(md) { 
+    width: 100%;
+    transition: all .3s ease-in;
+    @include media-breakpoint-up(sm) { 
         padding: 0 2rem 0 0;
     }
     @include media-breakpoint-up(lg) { 
@@ -25,6 +27,7 @@
         padding: 13px 0;
         white-space: nowrap;
         overflow-x: auto;
+        font-size: 0.9em;
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         &:first-of-type{
@@ -37,7 +40,6 @@
         }
         span{
             display: inline-block;
-            font-size: 0.9em;
             padding: 0;
             margin: 0;
         }
@@ -54,14 +56,4 @@
             left: $main-nav-width;
         }    
     }
-}
-
-#breadcrumb{
-    height: 50px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    left: 0;
-    right: 0;
-    transition: all .3s ease-in;
 }

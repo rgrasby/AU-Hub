@@ -1,6 +1,23 @@
 .container-sm{
-    max-width: 800px;
+    max-width: 100%;
     margin: auto;
     padding-left: 15px;
     padding-right: 15px;
+    @include media-breakpoint-up(sm) {
+        max-width: 750px;    
+    }
+    @include media-breakpoint-up(md) {
+        max-width: 800px;    
+    }
+}
+
+.container{
+    @include media-breakpoint-down(sm) {
+        max-width: 100%; 
+    }
+    &.full-override-sm{
+        @include media-breakpoint-down(sm) {
+            max-width:100%!important
+        }
+    }
 }

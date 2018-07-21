@@ -18,7 +18,9 @@
 .hamburger {
     display: flex;
     .hamburger-box {
-        margin-right: 0.5em;
+        @include media-breakpoint-up(sm) {
+            margin-right: 0.5em;
+        }
     }
     .hamburger-inner {
         background: white;

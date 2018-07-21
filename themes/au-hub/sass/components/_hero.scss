@@ -64,7 +64,7 @@
     position: relative;
     background: $blue;
     overflow: hidden;
-    min-height: 500px;
+    min-height: 525px;
     &::before {
         content: '';
         position: absolute;
@@ -100,9 +100,19 @@
             text-transform: uppercase;
             color: white;
             @include text-shadow;
+            font-size: 2em;
+            @include media-breakpoint-up(sm) {
+                font-size: 2.5em;
+            }
+            @include media-breakpoint-up(md) {
+                font-size: 3em;
+            }
         }
         .post-meta-top {
-            font-size: 1.2em;
+            font-size: 1em;
+            @include media-breakpoint-up(sm) {
+                font-size: 1.2em;    
+            }
             ul {
                 padding: 0;
                 margin: 0;

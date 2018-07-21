@@ -2,7 +2,6 @@
     overflow: hidden;
     height: 100%;
     position: relative;
-    height: 450px;
     .featured-bg {
         opacity: 0.7;
         position: relative;
@@ -25,17 +24,34 @@
     .featured-content {
         position: absolute;
         z-index: 99;
-        left: 1.5em;
+        left: 1em;
+        right: 1em;
         bottom: 1.5em;
-        width: 60%;
+        @include media-breakpoint-up(sm) { 
+            left: 1.5em;
+            right: 1.5em;    
+        }
+        @include media-breakpoint-up(md) { 
+            width: 70%;    
+        }
         h2 {
             text-transform: uppercase;
-            font-size: 1.6em;
+            font-size: 1.4em;
             margin: 0;
+            word-wrap: break-word;
+            @include media-breakpoint-up(md) { 
+                font-size: 1.6em;  
+            }
             a {
                 color: white;
                 @include text-shadow;
             }
+        }
+        p{
+            color: white;
+            margin-top: 0.3em;
+            margin-bottom: 0;
+            @include text-shadow;
         }
         ul {
             padding: 0;
@@ -65,20 +81,45 @@
     @include post-format;
 }
 
+.featured-intro{
+    margin-bottom: 3em;
+}  
+
 .featured-md {
+    height: 350px;
+    @include media-breakpoint-up(md) { 
+        height: 500px;    
+    }
     .featured-bg-color {
         background: radial-gradient(20em at top right, #db6331, transparent);
         background-color: $blue;
     }
-}
+} 
 
 #primary-featured {
     margin-bottom: 30px;
+    height: 500px;
     .featured-content {
         h2 {
             text-transform: uppercase;
-            font-size: 2.5em;
+            font-size: 1.8em;
+            @include media-breakpoint-up(md) { 
+                font-size: 2.5em;    
+            }
         }
+    }
+}
+
+#secondary-featured{
+    margin-bottom: 30px;
+    @include media-breakpoint-up(md) { 
+        margin-bottom: 0;
+    }
+}
+#secondary-featured, #third-featured{
+    height: 300px;
+    @include media-breakpoint-up(md) { 
+        height: 400px;
     }
 }
 

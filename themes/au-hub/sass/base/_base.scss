@@ -7,6 +7,19 @@ img{
     max-width: 100%;
 }
 
+.nav-panel-visible{
+    overflow: hidden;
+}
+
+figure{
+    margin: 0;
+    figcaption{
+        font-style: italic;
+        font-family: 0.9em;
+        text-align: center;
+    }
+}
+
 .resp-container {
     position: relative;
     overflow: hidden;
@@ -45,6 +58,9 @@ hr{
     height: 1px;
     background: $border-color;
     margin: 2.5em 0;
+    &.spacer{
+        background: none;
+    }
 }
 
 .sc-only, .screen-reader-text {
