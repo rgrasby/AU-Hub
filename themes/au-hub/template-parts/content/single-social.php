@@ -10,7 +10,7 @@ if (get_field('hero_banner')):
             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>"><span><i class="fa fa-facebook" aria-hidden="true"></i></span><strong>Like</strong></a>
         </li>
         <li class="twitter">
-            <a href="https://twitter.com/home?status=<?php echo get_permalink(); ?>"><span><i class="fa fa-twitter" aria-hidden="true"></i></span><strong>Tweet</strong></a>
+            <a href="https://twitter.com/home?status=<?php echo get_field('intro'); ?>"><span><i class="fa fa-twitter" aria-hidden="true"></i></span><strong>Tweet</strong></a>
         </li>
         <li class="linkedin">
             <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>&title=<?php echo the_title(); ?>&summary=<?php echo get_field('intro'); ?>"><span><i class="fa fa-linkedin" aria-hidden="true"></i></span><strong>Share</strong></a>

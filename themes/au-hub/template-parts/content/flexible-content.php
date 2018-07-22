@@ -31,30 +31,30 @@
         <!-- Check if it is a video-->
         <?php if (!get_field('move_video_to_bottom')): ?>
             <?php if ( has_post_format('video') ) : ?> 
-            <div class="media">
-                <div class="video">
-                    <div class="container">
-                        <div class="resp-container">
-                            <?php the_field('video_embed_code'); ?>
+                <div class="media">
+                    <div class="video">
+                        <div class="container">
+                            <div class="resp-container">
+                                <?php the_field('video_embed_code'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <?php endif; ?>
         <?php endif; ?>
 
         <!-- Check if it is an audio-->
         <?php if (!get_field('move_audio_to_bottom')): ?>
             <?php if ( has_post_format('audio') ) : ?> 
-            <div class="media">
-                <div class="audio">
-                    <div class="container">
-                        <div class="resp-container">
-                            <?php the_field('audio_embed_code'); ?>
+                <div class="media">
+                    <div class="audio">
+                        <div class="container">
+                            <div class="resp-container">
+                                <?php the_field('audio_embed_code'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <?php endif; ?>
         <?php endif; ?>
         
@@ -66,23 +66,23 @@
             $image_gallery = get_field('image_gallery');
             
             if( $image_gallery ): ?>
-            <div class="media">
-                <div id="gallery">
-                    <div class="container">
-                        <div class="row">
-                            <?php foreach( $image_gallery as $image ): ?>
-                                <div class="col-sm-3">
-                                    <div class="image">
-                                        <a data-fancybox="gallery" href="<?php echo $image['url']; ?>" data-caption="<?php echo $image['caption']; ?>">
-                                             <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
-                                        </a>
+                <div class="media">
+                    <div id="gallery">
+                        <div class="container">
+                            <div class="row">
+                                <?php foreach( $image_gallery as $image ): ?>
+                                    <div class="col-sm-3">
+                                        <div class="image">
+                                            <a data-fancybox="gallery" href="<?php echo $image['url']; ?>" data-caption="<?php echo $image['caption']; ?>">
+                                                 <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <?php endif; ?>
         
         <?php endif; ?>
@@ -100,10 +100,17 @@
             endif; ?>
 
             <div class="container-sm">
-                <h2><?php the_sub_field('title'); ?></h2>
+                <?php if(get_sub_field('title')): ?>
+                    <h2><?php the_sub_field('title'); ?></h2>
+                <?php endif; ?>
                 
                 <div class="content-with-image">
-                    <img class="<?php echo $float; ?>" src="<?php echo $image['sizes']['square'] ?>" alt="<?php $image['alt'] ?>" />
+                    <figure class="<?php echo $float; ?>">
+                    <img src="<?php echo $image['sizes']['square'] ?>" alt="<?php echo $image['alt'] ?>" />
+                    <?php if ($image['caption']): ?>
+                        <figcaption><?php echo $image['caption'] ?></figcaption>
+                    <?php endif;?>
+                    </figure>
                     <?php the_sub_field('content'); ?>
                 </div>
                 
@@ -125,19 +132,29 @@
             ?>
 
             <?php if ( $image ) : ?>
-                <div class="container">
+                <div class="container full-override-sm">
                     <div class="image-row">
                         <div class="row">
                             <?php if( $columns == '2'): ?>
 
-                                <div class="col-sm-6">
-                                    <img src="<?php echo $image['sizes']['six-by-four'] ?>" alt="<?php $image['alt'] ?>" />
+                                <div class="col-sm-6 mb-4">
+                                    <figure>
+                                        <img src="<?php echo $image['sizes']['six-by-four'] ?>" alt="<?php echo $image['alt'] ?>" />
+                                        <?php if ($image['caption']): ?>
+                                            <figcaption><?php echo $image['caption'] ?></figcaption>
+                                        <?php endif;?>
+                                    </figure>
                                 </div>
 
                             <?php else: ?>
 
                                 <div class="col">
-                                    <img src="<?php echo $image['sizes']['sixteen-by-nine'] ?>" alt="<?php $image['alt'] ?>" />
+                                    <figure>
+                                        <img src="<?php echo $image['sizes']['sixteen-by-nine'] ?>" alt="<?php echo $image['alt'] ?>" />
+                                        <?php if ($image['caption']): ?>
+                                            <figcaption><?php echo $image['caption'] ?></figcaption>
+                                        <?php endif;?>
+                                    </figure>
                                 </div>
 
                             <?php endif; ?>
@@ -145,7 +162,12 @@
                             <?php if( $image2 and $columns == '2'): ?>
 
                                 <div class="col-sm-6">
-                                    <img src="<?php echo $image2['sizes']['six-by-four'] ?>" alt="<?php $image2['alt'] ?>" />
+                                    <figure>
+                                        <img src="<?php echo $image2['sizes']['six-by-four'] ?>" alt="<?php echo $image2['alt'] ?>" />
+                                        <?php if ($image2['caption']): ?>
+                                            <figcaption><?php echo $image2['caption'] ?></figcaption>
+                                        <?php endif;?>
+                                    </figure>
                                 </div>
 
                             <?php endif; ?>
@@ -168,7 +190,7 @@
             <div class="container">
                 <div class="img-quote-row">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <?php 
                             $quoteimage = get_sub_field('pull_quote_image');
                             if( !empty($quoteimage) ): 
@@ -179,7 +201,7 @@
                             <?php endif; ?>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <blockquote>
                                 <p>“<?php the_sub_field('pull_quote'); ?>”</p>
                             </blockquote>
@@ -187,6 +209,7 @@
                     </div>
                 </div>
             </div>
+
         <!--Image slider -->
         <?php elseif ( get_row_layout() == 'image_slider' ) : ?>
 
@@ -208,32 +231,34 @@
 
     <?php endwhile; endif; ?><!--end post builder flexible content-->
 
+
+    <!--if chosen in the option the audio/video content can be at the bottom-->
     <?php if (get_field('move_video_to_bottom')): ?>
         <?php if ( has_post_format('video') ) : ?> 
-        <div class="media">
-            <div class="video">
-                <div class="container">
-                    <div class="resp-container">
-                        <?php the_field('video_embed_code'); ?>
+            <div class="media">
+                <div class="video">
+                    <div class="container">
+                        <div class="resp-container">
+                            <?php the_field('video_embed_code'); ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         <?php endif; ?>
     <?php endif; ?>
 
     <!-- Check if it is an audio-->
     <?php if (get_field('move_audio_to_bottom')): ?>
         <?php if ( has_post_format('audio') ) : ?> 
-        <div class="media">
-            <div class="audio">
-                <div class="container">
-                    <div class="resp-container">
-                        <?php the_field('audio_embed_code'); ?>
+            <div class="media">
+                <div class="audio">
+                    <div class="container">
+                        <div class="resp-container">
+                            <?php the_field('audio_embed_code'); ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         <?php endif; ?>
     <?php endif; ?>
     <?php wp_reset_query(); ?>

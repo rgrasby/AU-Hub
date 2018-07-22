@@ -21,6 +21,7 @@ Version: 1.0
 @import 'base/base'; 
 @import 'base/typography'; 
 
+
 @import 'layout/grid';
 @import 'layout/header';
 @import 'layout/footer';
@@ -45,3 +46,4 @@ Version: 1.0
 @import 'pages/error404'; 
 @import 'pages/frontpage.scss'; 
 @import 'pages/single.scss'; 
+@import 'pages/event.scss'; 
