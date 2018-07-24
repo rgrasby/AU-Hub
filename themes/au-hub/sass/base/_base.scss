@@ -7,8 +7,37 @@ img{
     max-width: 100%;
 }
 
+html{
+    top:0!important;
+}
+
+#page{
+    position: relative;
+}
+
+.admin-bar{
+    &.header-stuck{
+        @media only screen and (min-width: 604px) {
+            #main-header, #breadcrumb, #main-navigation-container{
+                margin-top: 32px;
+            }
+        }
+    }
+}
+
+.admin-bar:not(.header-stuck) #main-navigation-container{
+    margin-top: 32px;    
+}
+
 .nav-panel-visible{
     overflow: hidden;
+    @include media-breakpoint-up(sm) {
+        overflow: auto;
+    }
+}
+
+*:focus {
+    outline: none;
 }
 
 figure{
@@ -24,6 +53,7 @@ figure{
     position: relative;
     overflow: hidden;
     padding-top: 56.25%;
+    margin-top: -1em;
     iframe {
         position: absolute;
         top: 0;
@@ -31,6 +61,12 @@ figure{
         width: 100%!important;
         height: 100%!important;
         border: 0;
+    }
+}
+
+.html-code{
+    audio, video{
+        width: 100%;
     }
 }
 
@@ -44,12 +80,12 @@ body{
 
 a{
     text-decoration: none;
-    color: lighten($alt-blue, 5%);
+    color: lighten($alt-blue, 10%);
     &:hover, &:focus{
         text-decoration: underline;
     }
     &:visited{
-        color: $blue;
+        color: lighten($alt-blue, 5%);
     }
 }
 

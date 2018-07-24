@@ -14,8 +14,11 @@
 
 .see-all{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin-top: 2em;
+    @include media-breakpoint-up(sm) {
+        justify-content: flex-end;    
+    }
     .btn{
         margin: 1em 0;
     }

@@ -1,5 +1,17 @@
+.most-recent{
+    article{
+        font-size: 1em;
+    }
+}
 article{
     margin-bottom: 1.875em;
+    font-size: 0.9em;
+    @include media-breakpoint-up(sm) { 
+        font-size: 0.9em;   
+    }
+    @include media-breakpoint-up(md) { 
+        font-size: 1em;   
+    }
     h2{
         font-size: 1.2em;
         margin-top: 0.5em;
@@ -80,7 +92,7 @@ article{
         }
         li{
             a{
-                color: $gray-darkest;   
+                color: lighten($text-color, 10%); 
             }
         }
     }

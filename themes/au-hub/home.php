@@ -1,18 +1,15 @@
 <?php get_header(); ?>    
 
-    <div class="container" id="articles">
+<div class="container">
+    <div id="articles">
         
         <?php if ( have_posts() ) : ?>
-            <div class="row">
-                <header class="page-header">
-                    <h1 class="page-title">Recent Posts</h1>
-                </header><!-- .page-header -->
-            </div>
+            <header class="page-header">
+                <h1 class="page-title">Recent Posts</h1>
+            </header><!-- .page-header -->
         <?php endif; ?>
 
-        <div class="row">
-
-            <div class="row article-wrap">
+            <div class="row">
 
                 <?php if ( have_posts() ) : ?>
                     <?php while ( have_posts() ) : the_post(); ?>
@@ -33,7 +30,7 @@
                 </div>
             <?php endif; ?> 
 
-        </div><!--END .row -->
     </div><!--END #articles -->
+</div><!--END .container -->
 
 <?php get_footer(); ?>

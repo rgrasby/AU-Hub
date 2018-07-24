@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
-//var concat = require('gulp-concat');
+var concat = require('gulp-concat');
 
 gulp.task('sass', function() {
     gulp.src('sass/*.scss')
@@ -12,9 +12,16 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./'))
 }); 
 
+gulp.task('auhubjs', function() {
+    return gulp.src(['./js/plugins.js','./js/loadmore.js', './js/main.js'])
+    .pipe(concat('auhub.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./js'));
+});
+
 //Watch task
 gulp.task('watch', function() {
 	gulp.watch('sass/**/*.scss', ['sass']);
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass', 'watch', 'auhubjs']);

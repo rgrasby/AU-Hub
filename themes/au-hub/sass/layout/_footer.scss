@@ -1,4 +1,6 @@
 #site-footer {
+    position: relative;
+    z-index: 99993;
     .footer-inner {
         color: white;
         text-align: center;

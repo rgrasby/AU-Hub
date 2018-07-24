@@ -3,7 +3,6 @@
  * Template part for building out blog posts with ACF 
  */
 ?>
-    <?php while ( have_posts() ) : the_post(); ?>
 
         <!--Attention grabbing intro text that is slightly bigger than the rest of the content--> 
         <div id="post-intro">
@@ -25,8 +24,17 @@
             </div>
         </div>   
 
-    <?php endwhile; ?>
+        <?php 
 
+        $additional_intro = get_field('additional_intro');
+
+        if( $additional_intro ): ?>
+            <div class="additional-intro">
+                <div class="container-sm">
+                    <?php the_field('additional_intro_content'); ?>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <!-- Check if it is a video-->
         <?php if (!get_field('move_video_to_bottom')): ?>
@@ -229,6 +237,15 @@
             <?php endif; ?>
         <?php endif; ?>
 
+        <!--HTML Code -->
+        <?php if ( get_row_layout() == 'html_code_block' ) : ?>
+            <div class="html-code">
+                <div class="container">
+                    <?php the_sub_field('html_code'); ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
     <?php endwhile; endif; ?><!--end post builder flexible content-->
 
 
@@ -310,5 +327,4 @@
         <?php endif; ?>
     </div><!--END .container-sm-->
 
-
-    <?php wp_reset_query(); ?>
+<?php wp_reset_query(); ?>

@@ -1,6 +1,7 @@
 <?php
 $prev_post = get_previous_post(true);
 $next_post = get_next_post(true);   
+
 ?>
 
 <section id="prev-next">
@@ -18,12 +19,10 @@ $next_post = get_next_post(true);
                     $prevPost = get_posts($args);
                     foreach ($prevPost as $post) :
                         setup_postdata($post);
-                ?>
-
-                <a href="<?php the_permalink(); ?>">  
-                    <div class="thumbnail">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <?php the_post_thumbnail('thumbnail'); ?>
+               
+                $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $prevPost->ID ), 'large' );  ?>
+                <a href="<?php the_permalink(); ?>" class="equal-no-row">  
+                    <div class="thumbnail" style="background-image:url(<?php echo esc_url( $thumbnail[0] ); ?>)">
                     </div>
                     <h4>
                         <span>Previous Story</span>
@@ -46,16 +45,15 @@ $next_post = get_next_post(true);
                     $nextPost = get_posts($args);
                     foreach ($nextPost as $post) :
                         setup_postdata($post);
+                    $thumbnail2 = wp_get_attachment_image_src( get_post_thumbnail_id( $nextPost->ID ), 'large' ); 
                 ?>
 
-                <a href="<?php the_permalink(); ?>">  
+                <a href="<?php the_permalink(); ?>" class="equal-no-row">  
                     <h4>
                         <span>Next Story</span>
                         <?php the_title(); ?>
                     </h4>
-                    <div class="thumbnail">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        <?php the_post_thumbnail('thumbnail'); ?>
+                    <div class="thumbnail" style="background-image:url(<?php echo esc_url( $thumbnail2[0] ); ?>)">
                     </div>
                 </a>
 

@@ -35,3 +35,33 @@
 .nav-panel-label .close {
     transition: all 0.3s ease-in;
 }
+
+#open-main-nav {
+    border: 0;
+    color: white;
+    height: 100%;
+    padding: 0 0.8em;
+    margin-right: 1.5em;
+    z-index: 9999;
+    height: 50px;
+    background: $orange;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    display: none;
+    &:focus,
+    &:hover {
+        background: darken($orange, 10%);
+    }
+    @include media-breakpoint-up(sm) {
+        display: flex;
+        flex-flow: row;
+        flex-shrink: 0;
+        width: 125px;
+        justify-content: center;
+        float: left;
+    }
+    button:focus{
+        background: pink;
+    }
+}

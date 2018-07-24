@@ -7,22 +7,28 @@
         
         <div class="meta-row">
             <strong>Filed Under: </strong>
-            <ul class="categories">
-                <li><?php echo get_the_category_list('<span> / </span>'); ?></li>
-            </ul>
+            <div class="meta-content">
+                <ul class="categories">
+                    <li><?php echo get_the_category_list('<span> / </span>'); ?></li>
+                </ul>
+            </div>
         </div>
 
         <div class="meta-row">
             <strong>Published:</strong>
-            <ul>
-                <li><?php echo get_the_date(); ?></li>
-            </ul>
+            <div class="meta-content">
+                <ul>
+                    <li><?php echo get_the_date(); ?></li>
+                </ul>
+            </div>
         </div>
 
         <?php if(has_tag()) : ?>
         <div class="meta-row">
             <strong>Tagged In:</strong>
-            <?php echo get_the_tag_list('<ul><li>',' , ','</li></ul>'); ?>
+            <div class="meta-content">
+                <?php echo get_the_tag_list('<ul><li>',' , ','</li></ul>'); ?>
+            </div>
         </div>
         <?php endif; ?>
         

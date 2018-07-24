@@ -21,6 +21,9 @@
         items:1
     })
  
+    $('.equal-row').matchHeight();
+    $('.equal-no-row').matchHeight('false');
+    
     /* 
     Check if window resizing is done and call functions when resizing is complete
     =====================================================================*/
@@ -121,7 +124,7 @@
     stickyMainNav.stickNav();   
     
     /* 
-    Navigation panels for Support centre, search and mobile menu
+    Navigation panels for Notifcations and Search
     =====================================================================*/
     var navPanels = (function () {
         //variables
@@ -130,6 +133,7 @@
             $body = $('body');
         
         //bind events
+        $navPanelToggle.on('click', openwithspacebar);
         $navPanelToggle.on('click', openNavPanel);
         $(document).on('click', closeNavPanels);
         
@@ -165,6 +169,12 @@
             } 
         }
         
+        function openwithspacebar(e) {
+            e.stopPropagation();
+            if (e.keyCode == 32) {
+                openNavPanel();
+            }
+        }  
         /*
         Prevents iOS from scrolling even when overflow: hidden is applied
         =====================================================================*/ 
@@ -201,14 +211,17 @@
          
         //bind events
         $navOpenBtn.on('click', slideInNav);
+        $navOpenBtn.on('onkeydownopen', openWithsSpacebar);
         $(window).on('click', slideOutNav);
          
         //slide #main-navigation-container into visible canvas
         function slideInNav() {
             $mainNavContainer.toggleClass('visible');   
             $contentContainer.toggleClass('main-nav-showing');
-            $hamburger.toggleClass('is-active'); 
             $breadcrumb.toggleClass('push-over');
+            //stick navigation if necessary
+            stickyMainNav.stickNav();            
+            $hamburger.toggleClass('is-active'); 
         }
          
         //slide #main-navigation-container off canvas
@@ -220,6 +233,7 @@
                 $mainNavContainer.removeClass('visible');
                 $contentContainer.removeClass('main-nav-showing');
                 $breadcrumb.removeClass('push-over'); 
+                $('#open-main-nav .hamburger').removeClass('is-active');
             }
         }
          
@@ -233,9 +247,9 @@
         });
         
         //close nav panels if clicked anywhere outside of them
-        function closeNavPanels(event){
-            if(event){
-                var target = event.target; 
+        function closeNavPanels(e){
+            if(e){
+                var target = e.target; 
                 if (!jQuery(target).is('#au-right-nav *') ) {
                     $navPanelToggle.removeClass('active').attr("aria-expanded", 'false');
                     $navPanel.removeClass('is-visible').attr("aria-hidden", 'true');
@@ -243,6 +257,14 @@
                 }
             }
         }
+         
+        function openWithsSpacebar(e) {
+            if (e.keyCode == 32) {
+                e.stopPropagation();
+                slideInNav();
+                closeNavPanels();
+            }
+        }  
          
     }());
        
@@ -324,7 +346,7 @@
     });
     
     /*
-    Notification bell
+    Notification bell   
     =====================================================================*/
     var notificationBell = (function () {
         $bell = $('.fa-bell');
@@ -337,19 +359,32 @@
         } else {
             $bellCount.hide();    
         }
-        
     }());        
+    
+    /*
+    Set notification dropdown height     
+    =====================================================================*/
+    var notificationHeight = (function () {
+        $notePanel = $('#notifications');
+        $notePanelInner = $('#notifications .nav-panel-inner');
+        $innerPanelHeight = $notePanelInner.outerHeight();
+        windowWidth = checkWindowWidth();   
+        
+        if(checkWindowWidth()){
+            $notePanel.css( 'height', $innerPanelHeight);
+        }
+
+    }());      
     
     /* 
     Count faculty items. Change classes accordingly
     =====================================================================*/
     var facultHome = (function () {
         $subStoryCount = $('#faculty-stories .horizontal').length;
-        console.log($subStoryCount);
         if($subStoryCount == 0){
             $('#faculty-stories .row .col-md-6:first-of-type').removeClass('col-md-6').addClass('col-md-12');  
         }
-        
-    }());        
+    }()); 
+
     
 }) (jQuery);

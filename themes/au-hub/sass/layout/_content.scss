@@ -2,11 +2,36 @@
     position: relative;
     transition: all 0.3s ease-in;
     &.main-nav-showing{
-        transform: translate(300px);
+        overflow-x: hidden;
+        padding-left: $main-nav-width-sm;
+        @include media-breakpoint-up(md) {
+            padding-left: $main-nav-width;  
+        }
+        
+    }
+}
+
+.header-stuck{
+    #breadcrumb{
+        position: fixed;
+        top: $header-height-sm;
+    }
+    .main-nav-showing{
+        #breadcrumb{
+            left: $main-nav-width-sm;
+            transition: all .3s ease-in;
+            @include media-breakpoint-up(md) {
+                left: $main-nav-width;  
+            }
+        }
     }
 }
 
 #main-content{
+    transition: all 0.3s ease-in;
     min-height: 100vh;
-    padding-bottom: 4em;
+    padding-bottom: 3em;
+    @include media-breakpoint-up(sm) {
+        padding-bottom: 4em;    
+    }
 } 

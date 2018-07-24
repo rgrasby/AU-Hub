@@ -6,7 +6,7 @@
 
         <div id="articles">
 
-            <div class="article-wrap row">
+            <div class="row">
                 <?php
                 //the first two most recent events are larger
                 if ( have_posts() ) :
@@ -15,16 +15,16 @@
                     $count++; 
                     ?>
                         <?php if ($count == 1) : ?>
-                            <div class="col-sm-6">					
+                            <div class="col-sm-6 most-recent">					
                                 <?php get_template_part( 'template-parts/blog/blog', 'articles' ); ?>			
                             </div>	
                         <?php elseif($count == 2): ?>
-                            <div class="col-sm-6">					
+                            <div class="col-sm-6 most-recent">					
                                 <?php get_template_part( 'template-parts/blog/blog', 'articles' ); ?>			
                             </div>
                         <?php elseif($count > 2): ?>
                             <div class="col-sm-4">					
-                                <?php get_template_part( 'template-parts/blog/blog', 'articles' ); ?>			
+                                <?php get_template_part( 'template-parts/blog/blog', 'articles' ); ?>	
                             </div>		
                         <?php endif; ?>
                     <?php endwhile;?>

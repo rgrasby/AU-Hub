@@ -6,10 +6,13 @@ html, body{
 }
 
 h1{
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 600;
     color: $orange;
     line-height: 1.3em;
+    @include media-breakpoint-up(sm) {
+        font-size: 3em;    
+    }
 }
 
 

@@ -3,6 +3,7 @@
         <?php 
 
         $categories = get_the_category($post->ID);
+        
         if ($categories) :
             $category_ids = array();
             foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;

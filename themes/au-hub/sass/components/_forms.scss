@@ -1,4 +1,27 @@
 /* Header search form */
+input,
+textarea,
+select,
+{
+    width: 100%;
+    display: block;
+    outline: none;
+    height: 60px;
+    padding: 0 1.5em;
+    &:focus{
+        border: $orange;
+    }
+}
+
+textarea,
+input[type="text"],
+input[type="submit"],
+input[type="password"],
+[type="email"] {
+    -webkit-appearance: none;  
+}
+
+/* Header search form */
 
 .searchform {
     div {
@@ -17,6 +40,10 @@
         border-bottom-left-radius: 3px;
         padding: 1em 6em 1em 1em;
     }
+}
+#searchsubmit{
+    width: 105px;
+    padding: 0;
 }
 
 /* Footer MailChimp sign up */
@@ -38,9 +65,9 @@
             border: 0;
             background: white;
             width: 100%;
-            padding: 1em 8.5em 1em 1em;
+            padding: 1em 9em 1em 1em;
             @include media-breakpoint-up(sm) {
-                padding: 1em 9.5em 1em 1em;
+                padding: 1em 9em 1em 1em;
             }
         }
         h3 {
@@ -52,10 +79,8 @@
             margin: 0 0 1em;
         }
         .btn-orange{
-            padding: 1.2em 1.8em;
-            @include media-breakpoint-up(sm) {
-                padding: 1.2em 2.5em;
-            }
+            padding: 1.2em 0;
+            width: 110px;
         }
     }
 }

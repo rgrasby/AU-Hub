@@ -29,7 +29,7 @@
                 <?php
                 if ( is_archive() ) : ?>
                     <span class="page-name"><?php the_archive_title();?></span>
-                <?php elseif( post_type_exists( 'events' ) ) : ?>
+                <?php elseif ($post->post_type == "events"): ?>
                     <span class="page-name">Upcoming Events</span>
                 <?php elseif( is_home() ) : ?>
                     <span class="page-name">Recent Posts</span>

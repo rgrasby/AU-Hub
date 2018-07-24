@@ -14,7 +14,6 @@
 
     <?php get_template_part( 'template-parts/content/single', 'comments' ); ?>
 
-
 <?php get_footer();?>
 
 

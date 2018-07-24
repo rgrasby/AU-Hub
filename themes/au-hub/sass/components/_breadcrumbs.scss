@@ -1,59 +1,51 @@
-#breadcrumb{
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+#breadcrumb {
+    @include medium-dropshadow;
     display: flex;
     align-items: center;
     padding: 0 1rem;
     position: relative;
-    z-index: 99993;
-    background: white;
+    z-index: 99991;
     overflow: hidden;
     height: 50px;
     color: $alt-blue;
     width: 100%;
     transition: all .3s ease-in;
-    @include media-breakpoint-up(sm) { 
+    white-space: nowrap;
+    overflow-x: auto;
+    background: white;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    @include media-breakpoint-up(sm) {
         padding: 0 2rem 0 0;
     }
-    @include media-breakpoint-up(lg) { 
+    @include media-breakpoint-up(lg) {
         padding: 0 2.5rem 0 0;
-    } 
-    a{
+    }
+    .breadcrumb-inner {
+        background: white;
+    }
+    a {
         color: $alt-blue;
     }
-    >span{
+    > span {
         list-style: none;
         padding: 0;
         margin: 0;
         padding: 13px 0;
-        white-space: nowrap;
-        overflow-x: auto;
         font-size: 0.9em;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        &:first-of-type{
-            strong{
+
+        &:first-of-type {
+            strong {
                 font-weight: 400;
             }
-            a +strong{
-                font-weight: 600;    
+            a + strong {
+                font-weight: 600;
             }
         }
-        span{
+        span {
             display: inline-block;
             padding: 0;
             margin: 0;
         }
-    }
-}
-
-.header-stuck{
-    #breadcrumb{
-        position: fixed;
-        top: $header-height-sm;
-    }
-    .main-nav-showing{
-        #breadcrumb{
-            left: $main-nav-width;
-        }    
     }
 }

@@ -1,4 +1,4 @@
-e<div class="section-heading">
+<div class="section-heading">
     <h2>Image Galleries</h2>
 </div>
 
