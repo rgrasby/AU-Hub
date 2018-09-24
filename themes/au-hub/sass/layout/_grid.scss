@@ -12,12 +12,10 @@
 }
 
 .container{
-    @include media-breakpoint-down(sm) {
-        max-width: 100%; 
-    }
-    &.full-override-sm{
-        @include media-breakpoint-down(sm) {
-            max-width:100%!important
+    &.full-width-override{
+        @include media-breakpoint-down(md) {
+            max-width: 100%!important;
+            width: 100%!important
         }
     }
 }

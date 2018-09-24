@@ -25,17 +25,20 @@
             </a>
 
             <div id="current-title">
-                <span class="blog-name"><?php bloginfo('name'); ?></span>
-                <?php
-                if ( is_archive() ) : ?>
-                    <span class="page-name"><?php the_archive_title();?></span>
-                <?php elseif ($post->post_type == "events"): ?>
+                <?php if ( !is_front_page() ) : ?>
+                    <span class="blog-name"><?php bloginfo('name'); ?></span>
+                <?php endif; ?>
+                <?php if ($post->post_type == "events"): ?>
                     <span class="page-name">Upcoming Events</span>
                 <?php elseif( is_home() ) : ?>
                     <span class="page-name">Recent Posts</span>
                 <?php elseif( is_search() ):; ?>
                     <span class="page-name">Search Results</span>
-                <?php else:; ?>
+                <?php elseif ( is_archive() ) : ?>
+                    <span class="page-name"><?php the_archive_title();?></span>
+                <?php elseif ( is_front_page() ) : ?>
+                    <h1><?php bloginfo('name'); ?></h1>
+                <?php else: ?>
                     <span class="page-name"><?php echo the_title(); ?></span>
                 <?php endif; ?>
             </div>

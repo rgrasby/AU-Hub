@@ -7,8 +7,6 @@
  * as indicating support for post thumbnails.
  */
 
-
-
 function au_setup() {
 
     //Enable support for Post Thumbnails on posts and pages.
@@ -52,13 +50,12 @@ function au_scripts() {
 	wp_enqueue_style( 'au', get_template_directory_uri(). '/style.css' );
     wp_enqueue_style( 'load-fa', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     
-    //wp_enqueue_script( 'plugins', get_template_directory_uri() . '/js/auhub.js', array ( 'jquery' ), 1.0, true);
-    
-    wp_enqueue_script( 'plugins', get_template_directory_uri() . '/js/plugins.js', array ( 'jquery' ), 1.0, true);
-    wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array ( 'jquery' ), 1.0, true);
+    wp_enqueue_script( 'plugins', get_template_directory_uri() . '/js/dev/plugins.js', array ( 'jquery' ), 1.0, true);
+    wp_enqueue_script( 'main', get_template_directory_uri() . '/js/dev/main.js', array ( 'jquery' ), 1.0, true);
+    //wp_enqueue_script( 'auhub', get_template_directory_uri() . '/js/auhub.js', array ( 'jquery' ), 1.0, true);
     
     global $wp_query; 
-    
+
     wp_register_script( 'my_loadmore', get_template_directory_uri() . '/js/loadmore.js', array('jquery') );
     
 	wp_localize_script( 'my_loadmore', 'athabascau_loadmore_params', array(
@@ -345,3 +342,47 @@ function rd_duplicate_post_link( $actions, $post ) {
 }
  
 add_filter( 'post_row_actions', 'rd_duplicate_post_link', 10, 2 );
+
+/*
+ * Change the WordPress logo on the login screen
+ */
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/au-login-logo.svg);
+            height:65px;
+            width:320px;
+            background-size: 320px 65px;
+            background-repeat: no-repeat;
+            padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+add_filter('tiny_mce_before_init','configure_tinymce');
+
+/**
+ * Customize TinyMCE's configuration
+ *
+ * @param   array
+ * @return  array
+ */
+function configure_tinymce($in) {
+  $in['paste_preprocess'] = "function(plugin, args){
+    // Strip all HTML tags except those we have whitelisted
+    var whitelist = 'p,span,b,strong,i,em,h3,h4,h5,h6,ul,li,ol';
+    var stripped = jQuery('<div>' + args.content + '</div>');
+    var els = stripped.find('*').not(whitelist);
+    for (var i = els.length - 1; i >= 0; i--) {
+      var e = els[i];
+      jQuery(e).replaceWith(e.innerHTML);
+    }
+    // Strip all class and id attributes
+    stripped.find('*').removeAttr('id').removeAttr('class');
+    // Return the clean HTML
+    args.content = stripped.html();
+  }";
+  return $in;
+}

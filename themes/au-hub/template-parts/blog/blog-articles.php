@@ -1,9 +1,10 @@
 <article>
-
+    <?php
+    $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' ); ?>
+    
     <?php if ( has_post_thumbnail() ) : ?>
-    <a href="<?php the_permalink(); ?>" aria-label="Read <?php the_title(); ?>">
-        <div class="article-image">
-            <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>" />
+    <a class="article-image-link" href="<?php the_permalink(); ?>" aria-label="<?php echo get_the_post_thumbnail_caption($post->ID)?>">
+        <div class="article-image" style="background-image:url(<?php echo esc_url( $thumbnail[0] ); ?>)">
             <?php get_template_part( 'template-parts/content/format', 'icon' ); ?>
         </div>
     </a>

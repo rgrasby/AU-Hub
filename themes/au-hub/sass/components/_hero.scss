@@ -64,7 +64,8 @@
     position: relative;
     background: $blue;
     overflow: hidden;
-    min-height: 525px;
+    min-height: 550px;
+    max-height: 750px;
     &::before {
         content: '';
         position: absolute;
@@ -90,14 +91,12 @@
     .hero-inner {
         height: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
         text-align: center;
         position: relative;
         z-index: 99;
         h1 {
-            margin: 0;
-            text-transform: uppercase;
+            margin: 0 0 0.3em;
             color: white;
             @include text-shadow;
             font-size: 2em;
@@ -138,6 +137,23 @@
                 font-size: 1.8em;
                 width: 40px;
                 height: 40px;
+            }
+        }
+        .guess-author{
+            color: white;
+            margin-bottom: 0;
+            @include text-shadow;
+            position: relative;
+            margin-top: 1.5em;
+            font-size: 1em;
+            &:before{
+                content: '';
+                height: 4px;
+                width: 40px;
+                background: #eb6a2c;
+                position: absolute;
+                left: 50%;
+                margin-left: -20px;
             }
         }
     }

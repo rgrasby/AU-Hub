@@ -31,6 +31,7 @@
     transition: all 0.3s ease-in;
     min-height: 100vh;
     padding-bottom: 3em;
+    margin: auto;
     @include media-breakpoint-up(sm) {
         padding-bottom: 4em;    
     }

@@ -27,7 +27,25 @@
         <div class="meta-row">
             <strong>Tagged In:</strong>
             <div class="meta-content">
-                <?php echo get_the_tag_list('<ul><li>',' , ','</li></ul>'); ?>
+                <?php the_field('event_start_date_time')?>
+                <?php
+                $posttags = ucwords( get_the_tags() );
+                if ($posttags) {
+                    foreach($posttags as $tag) {
+                        echo $tag->name . ' ';
+                    }
+                }
+                ?>
+            </div>
+        </div> 
+        <?php endif; ?>
+        
+        
+        <?php if( get_field('guest_author') ): ?>
+        <div class="meta-row">
+            <strong>Guest Blog from:</strong>
+            <div class="meta-content">
+	           <?php the_field('guest_author'); ?>
             </div>
         </div>
         <?php endif; ?>

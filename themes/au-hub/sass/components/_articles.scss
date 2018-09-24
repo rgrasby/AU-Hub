@@ -3,9 +3,34 @@
         font-size: 1em;
     }
 }
+
+.series{
+    background: darken($orange, 5%);
+    color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+} 
+
+p.guess-author{
+    font-size: 0.95em;
+    margin-top: 1.2em!important;
+    &:before{
+        content: '';
+        height: 3px;
+        width: 40px;
+        background: #eb6a2c;
+        position: absolute;
+        margin-top: -9px;
+    }
+}
+
 article{
     margin-bottom: 1.875em;
     font-size: 0.9em;
+    position: relative;
     @include media-breakpoint-up(sm) { 
         font-size: 0.9em;   
     }
@@ -17,12 +42,35 @@ article{
         margin-top: 0.5em;
         font-weight: 600;
     }
+    .article-image-link{
+        position: relative;
+        display: block;
+        overflow: hidden;
+    }
     .article-image{
         position: relative;
         @include post-format;
+        padding-bottom: 60%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all 0.3s ease-in;
         overflow: hidden;
+        height: 100%;
+        width: 100%;
+        &:hover{
+            transition: all 0.3s ease-in;
+            height: 105%;
+            width: 105%;   
+            margin-left: -3%;
+            .post-format-icon{
+                right: 0.75em;
+            }
+        }
         .post-format-icon{
-            bottom: 0.5em;
+            bottom: 0.4em;
+            right: 0.4em;
+            transition: all 0.3s ease-in;
         }
         a{
             img{
@@ -35,6 +83,9 @@ article{
                 }
             }
         }
+        .post-format-icon{
+            bottom: 0.5em;
+        }
     }
     &.horizontal{
         display: flex;
@@ -45,6 +96,13 @@ article{
             flex-shrink: 0;
             margin-right: 1em;
             width: 125px;
+            height: 125px;
+            padding-bottom: 0;
+            &:hover{
+                width: 125px;
+                height: 125px;
+                margin-left: 0;    
+            }
             a{
                 img{
                     transition: all 0.3s ease-in;

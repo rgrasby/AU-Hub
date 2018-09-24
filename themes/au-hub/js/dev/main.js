@@ -24,6 +24,13 @@
     $('.equal-row').matchHeight();
     $('.equal-no-row').matchHeight('false');
     
+    $('.featured').on('click', function(e){
+        if( !$(e.target).is('.featured-content .categories *') ){
+          window.location = $(this).find('a').attr('href'); 
+          return false;
+        }
+    });
+    
     /* 
     Check if window resizing is done and call functions when resizing is complete
     =====================================================================*/
@@ -32,10 +39,8 @@
         resizeTimer = setTimeout(function() {
             $headerHeight = $mainHeader.outerHeight(),
             $headerHeightt = $headerHeight,
-            windowWidth = checkWindowWidth();   
-            //move #au-site-nav if necessary
-            moveNavigation();
-
+            windowWidth = checkWindowWidth(); 
+            
             //stick navigation if necessary
             stickyMainNav.stickNav();
             
@@ -64,26 +69,6 @@
 			return false;
 		}
 	}
-    
-    /* 
-    Move #au-site-nav depending on breakpoint variable 
-    Move utility navigation into #au-site-nav on mainsite
-    Move utility navigation to footer on subsites. Needed to make room for contextual navigation
-    ===========================================================================================*/
-    function moveNavigation(){
-		var $navigation = $('#main-navigation-container'),
-  		    desktop = checkWindowWidth();
-            if ( desktop ) {
-                $navigation.detach();
-                $navigation.prependTo($contentHeader);
-            } else {
-                //we are on a smaller device
-                $navigation.detach();
-                $navigation.appendTo('#au-site-nav-panel');
-            }
-	}
-    //make sure #au-site-nav is in the correct location
-    moveNavigation();
     
     /*
     Sticky Header for #main-header
@@ -385,6 +370,5 @@
             $('#faculty-stories .row .col-md-6:first-of-type').removeClass('col-md-6').addClass('col-md-12');  
         }
     }()); 
-
     
 }) (jQuery);

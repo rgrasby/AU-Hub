@@ -22,7 +22,6 @@ input[type="password"],
 }
 
 /* Header search form */
-
 .searchform {
     div {
         position: relative;
@@ -44,6 +43,9 @@ input[type="password"],
 #searchsubmit{
     width: 105px;
     padding: 0;
+    &:focus{
+        border-color: $orange;
+    }
 }
 
 /* Footer MailChimp sign up */
@@ -68,6 +70,9 @@ input[type="password"],
             padding: 1em 9em 1em 1em;
             @include media-breakpoint-up(sm) {
                 padding: 1em 9em 1em 1em;
+            }
+            &:focus{
+                border-color: $orange;
             }
         }
         h3 {
@@ -100,8 +105,8 @@ input[type="password"],
 
 /* Ninja Forms*/
 
-#nf-form-2-cont {
-
+.nf-form-cont {
+    padding-bottom: 3em;
     .nf-field-element input,
     .nf-field-element select,
     .nf-field-element textarea {
@@ -113,7 +118,15 @@ input[type="password"],
             border: 1px solid $orange;
         }
     }
-
+    
+    .nf-field-element{
+        textarea{
+            height: 90px;
+        }
+    }
+    #nf-field-12{
+        height: 175px;
+    }
     .nf-form-title {
         display: none;
     }
@@ -148,10 +161,27 @@ input[type="password"],
             border: 2px solid darken($orange, 12%);
         }
     }
-
+    #nf-field-23-container{
+        padding: 1em 0 0;    
+    }
+    #nf-field-7{
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+    input[type='checkbox'] {
+        position: relative;
+        top: 4px;
+        &:hover{
+            position: relative;
+            top: 4px;    
+            right: 0;
+            left: auto;
+        }
+    }
+    
     .field-wrap input[type="button"] {
         float: right;
-        padding: 1.1em 2em;
+        padding: 1.1emh;
     }
 
     .nf-fu-progress-bar {

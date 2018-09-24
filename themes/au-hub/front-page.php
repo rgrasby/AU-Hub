@@ -35,6 +35,7 @@
     
     <div class="container">
         
+        <?php/*
         <section id="podcast-posts">
             <?php get_template_part( 'template-parts/content/home', 'podcasts' ); ?>  
             <div class="see-all">
@@ -51,12 +52,12 @@
             </div>
         </section>
         
-        <hr>
+        <hr>*/ ?>           
         
         <section id="faculty-stories">
-            <?php get_template_part( 'template-parts/content/home', 'faculty' ); ?> 
+            <?php get_template_part( 'template-parts/content/home', 'qa' ); ?> 
             <div class="see-all">
-                <a href="<?php echo get_post_format_link( 'chat' ) ?>" class="btn btn-circle-icon-lg internal">See all Faculty Q&amp;As</a>
+                <a href="<?php echo get_post_format_link( 'chat' ) ?>" class="btn btn-circle-icon-lg internal">See al Q&amp;As</a>
             </div>
         </section>  
 

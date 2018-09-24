@@ -27,8 +27,10 @@
                 </div>
             </div>
             <div class="featured-intro">
-                <?php $intro = get_field('intro') ?>
-                <p><?php echo limit_words($intro, 50); ?></p>
+                <a href="<?php the_permalink(); ?>">
+                    <?php $intro = get_field('intro') ?>
+                    <p><?php echo limit_words($intro, 30); ?></p>
+                </a>
             </div>
             <?php wp_reset_postdata(); ?>
  

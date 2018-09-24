@@ -39,39 +39,32 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+            opacity: 1;
             &:hover {
                 height: 550px;
                 width: 100%;
                 margin-left: 0;
             }
         }
-    }
-    .featured-content {
-        h1 {
-            color: white;
-            @include text-shadow;
-            margin-bottom: 0;
-            font-size: 1.8em;
-            @include media-breakpoint-up(sm) {
-                font-size: 2em;
-            }
-            @include media-breakpoint-up(md) {
-                font-size: 3em;
-            }
+        .meta-event{
+            font-size: 0.9em;
         }
     }
     .meta-box {
         &.meta-box-events {
             display: block;
-            padding: 1em;
+            padding: 0.7em 2em 2em 2em;    
+            border-top: 0;
+            margin: 0;
             @include media-breakpoint-up(sm) {
-                padding: 2em;    
+                padding: 1.5em 2em 2em 2em;    
             }
             &::before {
                 display: none;
             }
             strong {
                 margin-bottom: 1em;
+                position: relative;
                 @include media-breakpoint-up(sm) {
                     position: absolute;
                     top: 0;
@@ -94,6 +87,7 @@
                     }
                 }
                 .meta-content {
+                    padding-left: 0;
                     p {
                         &:first-of-type {
                             margin-top: 0;

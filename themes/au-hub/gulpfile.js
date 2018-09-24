@@ -13,7 +13,7 @@ gulp.task('sass', function() {
 }); 
 
 gulp.task('auhubjs', function() {
-    return gulp.src(['./js/plugins.js','./js/loadmore.js', './js/main.js'])
+    return gulp.src(['./js/dev/plugins.js','./js/dev/main.js'])
     .pipe(concat('auhub.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./js'));

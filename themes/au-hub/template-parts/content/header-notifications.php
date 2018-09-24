@@ -1,5 +1,5 @@
 
-        <ul>
+    <ul>
         <?php 
 
         $today = date('Ymd');
@@ -16,48 +16,51 @@
             ),
         );
             
-        $the_query = new WP_Query( $args ); ?>
+        $the_query = new WP_Query( $args ); 
+        
+        if ( $the_query -> have_posts() ) :
 
-        <?php while ($the_query -> have_posts()) : $the_query -> the_post(); 
+            while ($the_query -> have_posts()) : $the_query -> the_post(); 
             $description = get_field('description');
             $date = get_field('date');
             $link = get_field('link');
         ?>
            
 
-        <?php if( $link ): ?>
-            <li>
-
-                <a href="<?php echo $link ?>">
+            <?php if( $link ): ?>
+                <li>
+                    <a href="<?php echo $link ?>">
+                        <div class="description">
+                            <?php echo $description ?>
+                        </div>
+                        <?php if( $date ): ?>
+                            <div class="date">
+                                <?php echo $date ?>
+                            </div>
+                        <?php endif; ?>
+                        <span class="fake-link">Find out more <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    </a>
+                </li>
+            <?php else: ?>
+                <li>
                     <div class="description">
                         <?php echo $description ?>
                     </div>
+
                     <?php if( $date ): ?>
                         <div class="date">
                             <?php echo $date ?>
                         </div>
                     <?php endif; ?>
-                    <span class="fake-link">Find out more <i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                </a>
-                
-            </li>
-        <?php else: ?>
-            <li>
-
-                <div class="description">
-                    <?php echo $description ?>
-                </div>
-
-                <?php if( $date ): ?>
-                    <div class="date">
-                        <?php echo $date ?>
-                    </div>
-                <?php endif; ?>
-
-            </li>
+                </li>
+            <?php endif; ?>
+        
+        <?php endwhile; else : ?>
+            <p class="text-center zero-all"><?php esc_html_e( 'No updates currently' ); ?></p>
         <?php endif; ?>
-
-        <?php endwhile; wp_reset_postdata(); ?>
+        
+        <?php wp_reset_postdata(); ?>
+        
     </ul>
 
 

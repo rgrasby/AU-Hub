@@ -4,7 +4,7 @@
     align-items: center;
     padding: 0 1rem;
     position: relative;
-    z-index: 99991;
+    z-index: 99995;
     overflow: hidden;
     height: 50px;
     color: $alt-blue;
@@ -13,6 +13,7 @@
     white-space: nowrap;
     overflow-x: auto;
     background: white;
+    margin: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     @include media-breakpoint-up(sm) {

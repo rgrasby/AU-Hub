@@ -1,0 +1,18 @@
+.twitter-timeline{
+    margin-top: 2.6em!important;
+}
+
+.content-image{
+    margin-top: 0.5em;
+}
+
+.something-to-share{
+    margin: -1em 0 1em;
+    @include media-breakpoint-up(md) {
+        text-align: right;    
+        margin: 0;
+    }
+    i{
+        padding-right: 0.5em;
+    }
+}

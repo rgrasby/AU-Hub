@@ -36,17 +36,39 @@ html{
     }
 }
 
+blockquote{
+    p{
+        margin: 0
+    }
+}
+
+cite{
+    font-size: 1rem;
+    font-style: italic;
+    color: $gray-darkest;
+    margin-top: 0.5em;
+    display: block;
+}
+
 *:focus {
     outline: none;
 }
 
 figure{
-    margin: 0;
+    margin: 0.5em 0 0;
     figcaption{
         font-style: italic;
-        font-family: 0.9em;
+        font-size: 0.8rem;
         text-align: center;
+        margin-top: 0.5em;
     }
+}
+
+.caption{
+    font-style: italic;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 0.5em;    
 }
 
 .resp-container {
@@ -111,4 +133,22 @@ hr{
 .the-end{
     display: none;
     text-align: center;
+}
+
+//wordpress menu bar when logged in.
+#wpadminbar{
+    background: #1b365d;
+    border-bottom:  1px solid #3c5f92;
+}
+
+#wpadminbar .menupop .ab-sub-wrapper, #wpadminbar .shortlink-input{
+    background: #1b365d;
+}
+
+#wpadminbar .ab-top-menu > li.hover > .ab-item, #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus, #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item, #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus{
+    background: #1b365d;
+}
+
+#wpadminbar .ab-submenu .ab-item, #wpadminbar .quicklinks .menupop ul li a, #wpadminbar .quicklinks .menupop ul li a strong, #wpadminbar .quicklinks .menupop.hover ul li a, #wpadminbar.nojs .quicklinks .menupop:hover ul li a{
+    color: #fcfafa
 }

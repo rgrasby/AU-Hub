@@ -1,5 +1,5 @@
 <div class="section-heading">
-    <h2>Faculty Q&amp;A</h2>
+    <h2>Q&amp;As</h2>
 </div>
 
 <div class="row">
@@ -21,14 +21,16 @@
                 <div class="featured-bg-color"></div>
                 <div class="featured-content"> 
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <ul class="categories">
+                    <ul class="categories"> 
                         <li><?php echo get_the_category_list('<span> / </span>'); ?></li>
                     </ul>
                 </div>
             </div>
             <div class="featured-intro">
-                <?php $intro = get_field('intro') ?>
-                <p><?php echo limit_words($intro, 50); ?></p>
+                <a href="<?php the_permalink(); ?>">
+                    <?php $intro = get_field('intro') ?>
+                    <p><?php echo limit_words($intro, 30); ?></p>
+                </a>
             </div>
             <?php wp_reset_postdata(); ?>
  

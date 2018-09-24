@@ -18,7 +18,7 @@ jQuery(function($){
             success : function( data ){
                 if( data ) { 
                     button.find('span').text( 'Load More Posts' );
-                    $('.articles-wrap .row').append(data); // insert new posts
+                    $('.article-wrap').append(data); // insert new posts
                     athabascau_loadmore_params.current_page++;
 
                     if ( athabascau_loadmore_params.current_page == athabascau_loadmore_params.max_page ) {

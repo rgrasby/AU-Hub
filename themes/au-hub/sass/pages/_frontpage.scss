@@ -6,8 +6,15 @@
 }
 
 .featured-intro{
-    p{
-        margin-bottom: 0;
+    a{
+        color: $text-color;
+        &:hover{
+            color: $text-color;
+            text-decoration: none;
+        }
+        p{
+            margin-bottom: 0;
+        }
     }
 }
 
