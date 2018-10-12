@@ -4,7 +4,7 @@
 * Styles for single.php and single-portfolio.php
 */
 
-.owl-carousel, .image-row, .img-quote-row, #comments, #gallery, video, audio, iframe, .full-width-quote, .smaller-quote{
+.owl-carousel, .image-row, .img-quote-row, #comments, #gallery, video, audio, .full-width-quote, .media, .smaller-quote, .image-only{
     margin: 2.5rem 0;
     @include media-breakpoint-up(md) {
         margin: 4rem 0;
@@ -32,18 +32,9 @@
     }
 }
 
-//videos, podcasts
-.media{
-    margin: 1em 0 2.5em;
-    @include media-breakpoint-up(lg) {
-        margin: 1em 0 4em;
-    }    
-}
-
 .content-only{
     margin-top: 0;   
 }
-
 
 //flexible fields
 .full-width-quote{

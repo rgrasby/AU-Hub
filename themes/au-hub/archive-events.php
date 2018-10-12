@@ -4,22 +4,22 @@
         <h1>Upcoming Events</h1>
         <div class="row">
             
-            <?php $today = date('Y-m-d H:i:s');
+            <?php $date_now = date('Y-m-d H:i:s');
             
             $args = array(
-                'post_type' => 'events',
-                'posts_per_page' => 100,
-                'meta_query' => array(
-                'relation' => 'OR',
-                    array(
-                        'key'		=> 'event_start_date_time',
-                        'compare'	=> '>=',
-                        'value'		=> $today,
-                    ),
-                     array(
-                        'key'		=> 'event_end_date_time',
-                        'compare'	=> '>=',
-                        'value'		=> $today,
+                'post_type'       => 'events',
+                'posts_per_page'  => -1,
+                'order'		      => 'ASC',
+                'orderby'	      => 'meta_value',
+                'meta_key'	   	  => 'event_start_date_time',
+                'meta_type'		  => 'DATETIME',
+                'meta_query'      => array(
+                'relation' 		  => 'or',
+                array(
+                    'key' => 'event_end_date_time',
+                    'compare' => '>=',
+                    'value' => $date_now,
+                    'type'  => 'DATETIME'
                     )
                 ),
             );

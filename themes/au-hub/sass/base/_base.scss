@@ -75,7 +75,6 @@ figure{
     position: relative;
     overflow: hidden;
     padding-top: 56.25%;
-    margin-top: -1em;
     iframe {
         position: absolute;
         top: 0;
@@ -107,7 +106,7 @@ a{
         text-decoration: underline;
     }
     &:visited{
-        color: lighten($alt-blue, 5%);
+        color: $alt-blue2;
     }
 }
 

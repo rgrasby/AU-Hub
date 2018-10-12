@@ -57,7 +57,7 @@
         <section id="faculty-stories">
             <?php get_template_part( 'template-parts/content/home', 'qa' ); ?> 
             <div class="see-all">
-                <a href="<?php echo get_post_format_link( 'chat' ) ?>" class="btn btn-circle-icon-lg internal">See al Q&amp;As</a>
+                <a href="<?php echo get_post_format_link( 'chat' ) ?>" class="btn btn-circle-icon-lg internal">See all Q&amp;A</a>
             </div>
         </section>  
 

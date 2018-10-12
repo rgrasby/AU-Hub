@@ -36,6 +36,9 @@ function au_setup() {
     
     //move Yoast Metabox to bottom
     add_filter( 'wpseo_metabox_prio', function() { return 'low';});
+    
+    //update plugins automatically
+    add_filter( 'auto_update_plugin', '__return_true' );
         
 }
 add_action( 'after_setup_theme', 'au_setup' );
@@ -70,6 +73,16 @@ function au_scripts() {
 add_action( 'wp_enqueue_scripts', 'au_scripts' );
 
 /**
+ * Add messages in wordpress admin
+ */
+function load_my_alerts(){
+      wp_register_script( 'my_alerts', get_template_directory_uri() . '/js/alerts.js', array( 'jquery' )
+    );
+    wp_enqueue_script( 'my_alerts' );
+}
+add_action('admin_enqueue_scripts', 'load_my_alerts');
+
+/**
  * Allow SVG through WordPress Media Uploader
  */
 function cc_mime_types($mimes) {
@@ -100,6 +113,18 @@ function remove_content_editor() {
         remove_post_type_support('page', 'editor');
     }
 }
+
+/**
+ * Remove the content editor from Get Social page
+ */
+add_action( 'admin_init', 'hide_editor' );
+function hide_editor() {
+	$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+	if( !isset( $post_id ) ) return;
+	$template_file = get_post_meta($post_id, '_wp_page_template', true);
+
+if($template_file == 'get-social.php'){ 
+remove_post_type_support('page', 'editor'); } }
 
 /**
  * Keeps category checkbox list in correct order on posts after saving
@@ -225,11 +250,12 @@ add_filter('gettext_with_context', 'rename_post_formats', 10, 4);
  * Limit output words from ACF fields
  */
 function limit_words($string, $word_limit) {
+
 	$string = strip_tags($string);
 	$words = explode(' ', strip_tags($string));
 	$return = trim(implode(' ', array_slice($words, 0, $word_limit)));
 	if(strlen($return) < strlen($string)){
-	$return .= '...';
+	$return .= "  [Read more]";
 	}
 	return $return;
 }

@@ -64,7 +64,7 @@
                 <footer id="secondary-footer">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="main-au-site">
                                     <a id="footer-logo" href="http://www.athabascau.ca/" target="_blank">
                                         <div class="shield-logo">
@@ -74,8 +74,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div id="copyright">&copy; <?php echo date('Y'); ?> Athabasca University. All rights reserved.</div>
+                            <div class="col-lg-6">
+                                <div id="copyright">&copy; <?php echo date('Y'); ?> Athabasca University. All rights reserved. <a href="http://www.athabascau.ca/privacy/">Privacy Policy</a></div>
                             </div>
                         </div>
                     </div>

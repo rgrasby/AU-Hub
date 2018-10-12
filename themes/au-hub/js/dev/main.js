@@ -11,7 +11,6 @@
         $contentHeader = $('#content-container'),
         resizeTimer,
         breakpoint = 576
-
     
     //single post slider
     $('.owl-carousel').owlCarousel({
@@ -49,7 +48,9 @@
             } else{
                 $mainNavContainer.attr("style", "");
             }
-    
+            
+            moveNavigation();
+            
         }, 250);
     });
       
@@ -69,6 +70,36 @@
 			return false;
 		}
 	}
+    
+
+        $('<span class="submenu-toggle"><i class="fa fa-angle-up" aria-hidden="true"></i></span>').insertBefore('.menu-item-has-children .sub-menu');
+
+
+        $( '.menu-item-has-children' ).on( 'click', '.submenu-toggle', function(e) {
+            e.preventDefault;
+            $(this).parent('.menu-item-has-children').toggleClass('sub-menu-opened');
+            $('.sub-menu').toggleClass('opened');
+        });
+    
+    /* 
+    Move navigation depending on mobile or desktop device 
+    =====================================================================*/
+    function moveNavigation(){
+		var desktop = checkWindowWidth();
+        
+        //we are on the AU main site
+        if ( desktop ) {
+            //we are on a larger device
+            $mainNavContainer.detach();
+            $mainNavContainer.insertAfter('#nav-anchor');
+        } else {
+            //we are on a smaller device
+            $mainNavContainer.detach();
+            $mainNavContainer.appendTo('#au-site-nav-panel');
+        }
+	}
+    //make sure #au-site-nav is in the correct location
+    moveNavigation();
     
     /*
     Sticky Header for #main-header

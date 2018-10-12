@@ -2,7 +2,7 @@
 
     <?php get_template_part( 'template-parts/content/single', 'hero' ); ?>
 
-    <?php get_template_part( 'template-parts/content/flexible', 'content' ); ?>
+    <?php get_template_part( 'template-parts/content/single', 'flexible-content' ); ?>
 
     <?php get_template_part( 'template-parts/content/single', 'guest-author' ); ?>
 
@@ -20,4 +20,4 @@
 
 
 
-  
+ 
