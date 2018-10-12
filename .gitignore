@@ -5,7 +5,7 @@ mu-plugins
 themes/au-hub/node_modules
 wp-cache-config.php
 cache/
-package-lock.json
+themes/au-hub/package-lock.json
 =======
 themes/au-hub/node_modules/
 plugins/
