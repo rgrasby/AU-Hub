@@ -5,3 +5,9 @@ mu-plugins
 themes/au-hub/node_modules
 wp-cache-config.php
 cache/
+=======
+themes/au-hub/node_modules/
+plugins/
+uploads/
+mu-plugins/wp-migrate-db-pro-compatibility.php
+>>>>>>> master
